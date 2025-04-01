@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Detail - E-Com Shop</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .product-detail-container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 0 15px;
+      display: flex;
+      gap: 30px;
+    }
+
+    .product-images {
+      flex: 1;
+    }
+
+    .main-image {
+      width: 100%;
+      height: 400px;
+      margin-bottom: 10px;
+      border: 1px solid #eee;
+    }
+
+    .main-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .image-thumbnails {
+      display: flex;
+      gap: 10px;
+    }
+
+    .thumbnail {
+      width: 80px;
+      height: 80px;
+      border: 1px solid #eee;
+      cursor: pointer;
+    }
+
+    .thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .product-details {
+      flex: 1;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-title {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .rating {
+      color: #ffc107;
+      margin-bottom: 10px;
+    }
+
+    .product-detail-price {
+      display: flex;
+      align-items: center;
+      margin: 15px 0;
+      background-color: #f9f9f9;
+      padding: 15px;
+      border-radius: 4px;
+    }
+
+    .product-detail-current-price {
+      font-size: 28px;
+      color: #3498db;
+      font-weight: 700;
+      margin-right: 15px;
+    }
+
+    .product-detail-original-price {
+      color: #999;
+      font-size: 18px;
+      text-decoration: line-through;
+    }
+
+    .discount-label {
+      background-color: #3498db;
+      color: white;
+      padding: 3px 8px;
+      border-radius: 3px;
+      margin-left: 10px;
+      font-size: 14px;
+    }
+
+    .quantity-selector {
+      display: flex;
+      align-items: center;
+      margin: 20px 0;
+    }
+
+    .quantity-selector span {
+      margin-right: 15px;
+      font-weight: 500;
+    }
+
+    .quantity-buttons {
+      display: flex;
+      align-items: center;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    .quantity-buttons button {
+      width: 40px;
+      height: 40px;
+      background: none;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .quantity-buttons input {
+      width: 60px;
+      height: 40px;
+      text-align: center;
+      border: none;
+      border-left: 1px solid #ddd;
+      border-right: 1px solid #ddd;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .add-to-cart,
+    .buy-now {
+      padding: 12px 25px;
+      border-radius: 4px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+    }
+
+    .add-to-cart {
+      background-color: rgba(52, 152, 219, 0.1);
+      color: #3498db;
+      border: 1px solid #3498db;
+    }
+
+    .buy-now {
+      background-color: #3498db;
+      color: white;
+    }
+
+    .product-info-tabs {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 15px;
+    }
+
+    .tabs {
+      display: flex;
+      border-bottom: 1px solid #eee;
+      margin-bottom: 20px;
+    }
+
+    .tab {
+      padding: 10px 20px;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+    }
+
+    .tab.active {
+      color: #3498db;
+      border-bottom: 3px solid #3498db;
+    }
+
+    .tab-content {
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      min-height: 300px;
+    }
+
+    .specification-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .specification-table tr:nth-child(odd) {
+      background-color: #f9f9f9;
+    }
+
+    .specification-table td {
+      padding: 12px 15px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .specification-table td:first-child {
+      width: 30%;
+      font-weight: 500;
+    }
+
+    .related-products {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 15px;
+    }
+
+    .related-title {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 15px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Top Navigation Bar -->
+  <div class="top-nav">
+    <div class="container">
+      <div class="top-nav-left">
+        <a href="#">Seller Centre</a>
+        <span class="divider">|</span>
+        <a href="#">Start Selling</a>
+        <span class="divider">|</span>
+        <a href="#">Download</a>
+        <span class="divider">|</span>
+        <a href="#">Follow us on</a>
+        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+      </div>
+      <div class="top-nav-right">
+        <a href="#"><i class="far fa-bell"></i> Notifications</a>
+        <a href="#"><i class="far fa-question-circle"></i> Help</a>
+        <a href="#"><i class="fas fa-globe"></i> English</a>
+        <a href="#">Sign Up</a>
+        <span class="divider">|</span>
+        <a href="#">Login</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Header -->
+  <header class="main-header">
+    <div class="container">
+      <div class="logo">
+        <a href="index.html">
+          <img src="/placeholder.svg?height=50&width=150" alt="Main Logo">
+        </a>
+      </div>
+      <div class="search-bar">
+        <input type="text" placeholder="Search for products, brands and shops">
+        <button class="search-button">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+      <div class="cart">
+        <a href="#">
+          <i class="fas fa-shopping-cart"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Product Detail -->
+  <div class="product-detail-container">
+    <div class="product-images">
+      <div class="main-image">
+        <img id="product-main-image" src="/placeholder.svg?height=400&width=400" alt="Product Image">
+      </div>
+      <div class="image-thumbnails">
+        <div class="thumbnail">
+          <img src="/placeholder.svg?height=80&width=80&text=1" alt="Thumbnail 1" onclick="changeMainImage(this.src)">
+        </div>
+        <div class="thumbnail">
+          <img src="/placeholder.svg?height=80&width=80&text=2" alt="Thumbnail 2" onclick="changeMainImage(this.src)">
+        </div>
+        <div class="thumbnail">
+          <img src="/placeholder.svg?height=80&width=80&text=3" alt="Thumbnail 3" onclick="changeMainImage(this.src)">
+        </div>
+        <div class="thumbnail">
+          <img src="/placeholder.svg?height=80&width=80&text=4" alt="Thumbnail 4" onclick="changeMainImage(this.src)">
+        </div>
+      </div>
+    </div>
+    <div class="product-details">
+      <h1 id="product-title" class="product-title">Product Name</h1>
+      <div class="rating">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star-half-alt"></i>
+        <span>(245 ratings)</span>
+      </div>
+      <div class="product-detail-price">
+        <div id="product-current-price" class="product-detail-current-price">$25.00</div>
+        <div id="product-original-price" class="product-detail-original-price">$50.00</div>
+        <div id="discount-percentage" class="discount-label">50% OFF</div>
+      </div>
+      <div class="quantity-selector">
+        <span>Quantity:</span>
+        <div class="quantity-buttons">
+          <button onclick="decreaseQuantity()">-</button>
+          <input type="text" id="quantity" value="1" readonly>
+          <button onclick="increaseQuantity()">+</button>
+        </div>
+        <span id="stock-info" style="margin-left: 15px; color: #888;">999 pieces available</span>
+      </div>
+      <div class="action-buttons">
+        <button class="add-to-cart"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+        <button class="buy-now">Buy Now</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Product Info Tabs -->
+  <div class="product-info-tabs">
+    <div class="tabs">
+      <div class="tab active" onclick="changeTab('description')">Description</div>
+      <div class="tab" onclick="changeTab('specifications')">Specifications</div>
+      <div class="tab" onclick="changeTab('reviews')">Reviews</div>
+    </div>
+    <div id="tab-content" class="tab-content">
+      <div id="description-content">
+        <h3>Product Description</h3>
+        <p>This is a high-quality product that offers excellent features and performance. Lorem ipsum dolor sit amet,
+          consectetur adipiscing elit. Nulla facilisi. Sed euismod, nisl vel ultricies lacinia, nunc nisl aliquam nisl,
+          eget aliquam nisl nisl sit amet nisl. Sed euismod, nisl vel ultricies lacinia, nunc nisl aliquam nisl, eget
+          aliquam nisl nisl sit amet nisl.</p>
+        <p>Features:</p>
+        <ul style="margin-left: 20px; list-style-type: disc;">
+          <li>High-quality materials</li>
+          <li>Durable and long-lasting</li>
+          <li>Easy to use</li>
+          <li>Compact design</li>
+          <li>Energy efficient</li>
+        </ul>
+      </div>
+      <div id="specifications-content" style="display: none;">
+        <h3>Product Specifications</h3>
+        <table class="specification-table">
+          <tr>
+            <td>Brand</td>
+            <td>E-Com Premium</td>
+          </tr>
+          <tr>
+            <td>Model</td>
+            <td>XD-2023</td>
+          </tr>
+          <tr>
+            <td>Color</td>
+            <td>Black</td>
+          </tr>
+          <tr>
+            <td>Material</td>
+            <td>High-quality plastic and metal</td>
+          </tr>
+          <tr>
+            <td>Dimensions</td>
+            <td>10 x 5 x 3 cm</td>
+          </tr>
+          <tr>
+            <td>Weight</td>
+            <td>150g</td>
+          </tr>
+          <tr>
+            <td>Warranty</td>
+            <td>1 year</td>
+          </tr>
+        </table>
+      </div>
+      <div id="reviews-content" style="display: none;">
+        <h3>Customer Reviews</h3>
+        <p>This product has received excellent reviews from our customers. Check out what they have to say!</p>
+        <!-- Reviews would go here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Related Products -->
+  <div class="related-products">
+    <h2 class="related-title">Related Products</h2>
+    <div class="related-grid">
+      <!-- Related products would go here -->
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-column">
+          <h3>CUSTOMER SERVICE</h3>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">How to Buy</a></li>
+            <li><a href="#">Shipping & Delivery</a></li>
+            <li><a href="#">International Product Policy</a></li>
+            <li><a href="#">How to Return</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>ABOUT US</h3>
+          <ul>
+            <li><a href="#">About E-Com Shop</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press & Media</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>PAYMENT</h3>
+          <div class="payment-icons">
+            <!-- Payment icons would go here -->
+          </div>
+        </div>
+        <div class="footer-column">
+          <h3>FOLLOW US</h3>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+            <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+            <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="copyright">© 2023 E-Com Shop. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Get URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id');
+    const productName = urlParams.get('name')?.replace(/-/g, ' ');
+    const productPrice = urlParams.get('price');
+    const originalPrice = urlParams.get('originalprice');
+    const discount = urlParams.get('discount');
+
+    // Set product details
+    document.addEventListener('DOMContentLoaded', function () {
+      if (productName) {
+        document.getElementById('product-title').textContent = productName;
+        document.title = productName + ' - E-Com Shop';
+      }
+
+      if (productPrice) {
+        document.getElementById('product-current-price').textContent = '$' + productPrice;
+      }
+
+      if (originalPrice) {
+        document.getElementById('product-original-price').textContent = '$' + originalPrice;
+      }
+
+      if (discount) {
+        document.getElementById('discount-percentage').textContent = discount + '% OFF';
+      }
+    });
+
+    // Change main image function
+    function changeMainImage(src) {
+      document.getElementById('product-main-image').src = src;
+    }
+
+    // Quantity control functions
+    function increaseQuantity() {
+      const quantityInput = document.getElementById('quantity');
+      quantityInput.value = parseInt(quantityInput.value) + 1;
+    }
+
+    function decreaseQuantity() {
+      const quantityInput = document.getElementById('quantity');
+      if (parseInt(quantityInput.value) > 1) {
+        quantityInput.value = parseInt(quantityInput.value) - 1;
+      }
+    }
+
+    // Tab switching function
+    function changeTab(tabName) {
+      // Hide all tab content
+      document.getElementById('description-content').style.display = 'none';
+      document.getElementById('specifications-content').style.display = 'none';
+      document.getElementById('reviews-content').style.display = 'none';
+
+      // Show selected tab content
+      document.getElementById(tabName + '-content').style.display = 'block';
+
+      // Update active tab class
+      const tabs = document.querySelectorAll('.tab');
+      tabs.forEach(tab => tab.classList.remove('active'));
+
+      // Find the clicked tab and add active class
+      const clickedTab = Array.from(tabs).find(tab => tab.textContent.toLowerCase().includes(tabName));
+      if (clickedTab) {
+        clickedTab.classList.add('active');
+      }
+    }
+  </script>
+</body>
+
+</html>
