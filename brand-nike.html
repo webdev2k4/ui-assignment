@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nike - E-Com Shop</title>
+  <link rel="stylesheet" href="./src/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Fallback styles in case the CSS file doesn't load */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    .top-nav {
+      background-color: #f5f5f5;
+      padding: 8px 0;
+      font-size: 13px;
+    }
+
+    .main-header {
+      padding: 15px 0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .logo img {
+      max-height: 30px;
+      width: auto;
+    }
+
+    .category-nav {
+      background-color: white;
+      padding: 10px 0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .brand-banner img {
+      width: 100%;
+      height: auto;
+    }
+
+    .brand-profile {
+      display: flex;
+      align-items: center;
+      padding: 20px 0;
+    }
+
+    .brand-logo {
+      margin-right: 20px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Top Navigation Bar -->
+  <div class="top-nav">
+    <div class="container">
+      <div class="top-nav-left">
+        <a href="#">Seller Centre</a>
+        <span class="divider">|</span>
+        <a href="#">Start Selling</a>
+        <span class="divider">|</span>
+        <a href="#">Download</a>
+        <span class="divider">|</span>
+        <a href="#">Follow us on</a>
+        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+      </div>
+      <div class="top-nav-right">
+        <a href="#"><i class="far fa-bell"></i> Notifications</a>
+        <a href="#"><i class="far fa-question-circle"></i> Help</a>
+        <a href="#"><i class="fas fa-globe"></i> English</a>
+        <a href="#">Sign Up</a>
+        <span class="divider">|</span>
+        <a href="#">Login</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Header -->
+  <header class="main-header">
+    <div class="container">
+      <div class="logo">
+        <a href="index.html">
+          <img src="placeholder.svg?height=25&width=75" alt="Main Logo">
+        </a>
+      </div>
+      <div class="search-bar">
+        <input type="text" placeholder="Search in Nike">
+        <button class="search-button">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+      <div class="cart">
+        <a href="#">
+          <i class="fas fa-shopping-cart"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Category Navigation -->
+  <nav class="category-nav">
+    <div class="container">
+      <ul>
+        <li><a href="./src/pages/womens-fashion.html">Women's Fashion</a></li>
+        <li><a href="./src/pages/mens-fashion.html">Men's Fashion</a></li>
+        <li><a href="./src/pages/phones-gadgets.html">Phones & Gadgets</a></li>
+        <li><a href="#">Electronics</a></li>
+        <li><a href="#">Home & Living</a></li>
+        <li><a href="#">Health & Beauty</a></li>
+        <li><a href="#">Baby & Toys</a></li>
+        <li><a href="#">Groceries</a></li>
+        <li><a href="#">Sports & Travel</a></li>
+        <li><a href="#">Automotive</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Brand Banner -->
+    <section class="brand-banner">
+      <div class="container">
+        <img src="placeholder.svg?height=300&width=1200" alt="Nike Brand Banner">
+      </div>
+    </section>
+
+    <!-- Brand Info -->
+    <section class="brand-info">
+      <div class="container">
+        <div class="brand-profile">
+          <div class="brand-logo">
+            <img src="placeholder.svg?height=120&width=120" alt="Nike Logo">
+          </div>
+          <div class="brand-details">
+            <h1>Nike Official Store</h1>
+            <div class="brand-stats">
+              <span><i class="fas fa-check-circle"></i> Official Brand</span>
+              <span><i class="fas fa-star"></i> 4.9 Rating</span>
+              <span><i class="fas fa-users"></i> 5.2M Followers</span>
+            </div>
+            <div class="brand-actions">
+              <button class="follow-button"><i class="fas fa-plus"></i> Follow</button>
+              <button class="chat-button"><i class="fas fa-comment"></i> Chat</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Brand Categories -->
+    <section class="brand-categories">
+      <div class="container">
+        <h2>CATEGORIES</h2>
+        <div class="category-tabs">
+          <a href="#" class="active">All Products</a>
+          <a href="#">Men's Shoes</a>
+          <a href="#">Women's Shoes</a>
+          <a href="#">Sports Apparel</a>
+          <a href="#">Accessories</a>
+          <a href="#">New Arrivals</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-products">
+      <div class="container">
+        <div class="section-header">
+          <h2>BEST SELLERS</h2>
+        </div>
+        <div class="product-grid">
+          <div class="product-card">
+            <div class="product-image">
+              <img src="placeholder.svg?height=180&width=180" alt="Nike Air Max">
+              <div class="discount-tag">15% OFF</div>
+            </div>
+            <div class="product-info">
+              <div class="product-name">Nike Air Max 90</div>
+              <div class="product-price">
+                <span class="current-price">$119.99</span>
+                <span class="original-price">$140.00</span>
+              </div>
+              <div class="product-sold">4.8k sold</div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-image">
+              <img src="placeholder.svg?height=180&width=180" alt="Nike Dri-FIT">
+            </div>
+            <div class="product-info">
+              <div class="product-name">Nike Dri-FIT Running T-Shirt</div>
+              <div class="product-price">
+                <span class="current-price">$35.00</span>
+              </div>
+              <div class="product-sold">3.2k sold</div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-image">
+              <img src="placeholder.svg?height=180&width=180" alt="Nike React">
+              <div class="discount-tag">20% OFF</div>
+            </div>
+            <div class="product-info">
+              <div class="product-name">Nike React Infinity Run</div>
+              <div class="product-price">
+                <span class="current-price">$127.99</span>
+                <span class="original-price">$160.00</span>
+              </div>
+              <div class="product-sold">2.7k sold</div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-image">
+              <img src="placeholder.svg?height=180&width=180" alt="Nike Sportswear">
+            </div>
+            <div class="product-info">
+              <div class="product-name">Nike Sportswear Club Fleece</div>
+              <div class="product-price">
+                <span class="current-price">$55.00</span>
+              </div>
+              <div class="product-sold">5.1k sold</div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-image">
+              <img src="placeholder.svg?height=180&width=180" alt="Nike Air Force 1">
+              <div class="discount-tag">10% OFF</div>
+            </div>
+            <div class="product-info">
+              <div class="product-name">Nike Air Force 1 '07</div>
+              <div class="product-price">
+                <span class="current-price">$89.99</span>
+                <span class="original-price">$100.00</span>
+              </div>
+              <div class="product-sold">8.5k sold</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- New Arrivals -->
+    <section class="new-arrivals">
+      <div class="container">
+        <div class="section-header">
+          <h2>NEW ARRIVALS</h2>
+        </div>
+        <div class="product-grid">
+          <!-- Product cards for new arrivals -->
+          <div class="product-card">
+            <div class="product-image">
+              <img src="placeholder.svg?height=180&width=180" alt="Nike Product">
+              <div class="new-tag">NEW</div>
+            </div>
+            <div class="product-info">
+              <div class="product-name">Nike Air Zoom Pegasus 38</div>
+              <div class="product-price">
+                <span class="current-price">$120.00</span>
+              </div>
+            </div>
+          </div>
+          <!-- More product cards... -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Customer Service</h3>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">How to Buy</a></li>
+            <li><a href="#">Shipping & Delivery</a></li>
+            <li><a href="#">Returns & Refunds</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>About Us</h3>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Media Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Payment Methods</h3>
+          <div class="payment-icons">
+            <i class="fab fa-cc-visa"></i>
+            <i class="fab fa-cc-mastercard"></i>
+            <i class="fab fa-cc-paypal"></i>
+            <i class="fab fa-cc-amex"></i>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023 E-Com Shop. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

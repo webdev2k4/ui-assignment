@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Component Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    .component-container {
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+  </style>
+  <script>
+    // Inline component loader for testing
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('[data-component]').forEach(element => {
+        const componentName = element.getAttribute('data-component');
+        fetch(`src/components/${componentName}.html`)
+          .then(response => {
+            console.log(`Response for ${componentName}:`, response);
+            if (!response.ok) throw new Error('Failed to load');
+            return response.text();
+          })
+          .then(html => {
+            element.innerHTML = html;
+          })
+          .catch(error => {
+            console.error('Error loading component:', componentName, error);
+            element.innerHTML = `<p>Error loading component: ${componentName}</p>`;
+          });
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <h1>Component Test Page</h1>
+
+  <div class="component-container">
+    <h2>Header Component:</h2>
+    <div data-component="header"></div>
+  </div>
+
+  <div class="component-container">
+    <h2>Navigation Component:</h2>
+    <div data-component="navigation"></div>
+  </div>
+
+  <div class="component-container">
+    <h2>Promotions Component:</h2>
+    <div data-component="promotions"></div>
+  </div>
+
+  <div class="component-container">
+    <h2>Footer Component:</h2>
+    <div data-component="footer"></div>
+  </div>
+
+  <script>
+    // Check for fetch errors and log them
+    window.addEventListener('error', function (e) {
+      console.error('Global error:', e.message);
+    });
+  </script>
+</body>
+
+</html>

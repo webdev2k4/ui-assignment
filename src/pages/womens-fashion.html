@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Women's Fashion - E-Com Shop</title>
+  <link rel="stylesheet" href="../../src/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Fallback styles in case the CSS file doesn't load */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    .top-nav {
+      background-color: #f5f5f5;
+      padding: 8px 0;
+      font-size: 13px;
+    }
+
+    .main-header {
+      padding: 15px 0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .category-nav {
+      background-color: white;
+      padding: 10px 0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .logo img {
+      max-height: 30px;
+      width: auto;
+    }
+
+    .subcategories h2,
+    .featured-products h2,
+    .popular-brands h2 {
+      text-align: center;
+      margin-top: 30px;
+      margin-bottom: 20px;
+    }
+
+    .subcategory-grid,
+    .product-grid,
+    .brands-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 15px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header Components (Inline) -->
+  <div class="top-nav">
+    <div class="container">
+      <div class="top-nav-left">
+        <a href="#">Seller Centre</a>
+        <span class="divider">|</span>
+        <a href="#">Start Selling</a>
+        <span class="divider">|</span>
+        <a href="#">Download</a>
+        <span class="divider">|</span>
+        <a href="#">Follow us on</a>
+        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+      </div>
+      <div class="top-nav-right">
+        <a href="#"><i class="far fa-bell"></i> Notifications</a>
+        <a href="#"><i class="far fa-question-circle"></i> Help</a>
+        <a href="#"><i class="fas fa-globe"></i> English</a>
+        <a href="#">Sign Up</a>
+        <span class="divider">|</span>
+        <a href="#">Login</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Header -->
+  <header class="main-header">
+    <div class="container">
+      <div class="logo">
+        <a href="../../index.html">
+          <img src="../../placeholder.svg?height=25&width=75" alt="Main Logo">
+        </a>
+      </div>
+      <div class="search-bar">
+        <input type="text" placeholder="Search for products">
+        <button class="search-button">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+      <div class="cart">
+        <a href="#">
+          <i class="fas fa-shopping-cart"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation Component (Inline) -->
+  <nav class="category-nav">
+    <div class="container">
+      <ul class="category-list">
+        <li class="category-item">
+          <a href="./womens-fashion.html" class="active">Women's Fashion</a>
+        </li>
+        <li class="category-item">
+          <a href="./mens-fashion.html">Men's Fashion</a>
+        </li>
+        <li class="category-item">
+          <a href="./phones-gadgets.html">Phones & Gadgets</a>
+        </li>
+        <li class="category-item">
+          <a href="#">Home & Lifestyle</a>
+        </li>
+        <li class="category-item">
+          <a href="#">Beauty & Health</a>
+        </li>
+        <li class="category-item">
+          <a href="#">Sports & Outdoors</a>
+        </li>
+        <li class="category-item">
+          <a href="#">Watches & Accessories</a>
+        </li>
+        <li class="category-item">
+          <a href="#">Toys & Games</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Category Banner -->
+    <section class="category-banner">
+      <div class="container">
+        <img src="../../placeholder.svg?height=200&width=1200" alt="Women's Fashion Banner">
+      </div>
+    </section>
+
+    <!-- Subcategories -->
+    <section class="subcategories">
+      <div class="container">
+        <h2>BROWSE WOMEN'S FASHION</h2>
+        <div class="subcategory-grid">
+          <div class="subcategory-item">
+            <img src="../../placeholder.svg?height=120&width=120" alt="Dresses">
+            <span>Dresses</span>
+          </div>
+          <div class="subcategory-item">
+            <img src="../../placeholder.svg?height=120&width=120" alt="Tops">
+            <span>Tops</span>
+          </div>
+          <div class="subcategory-item">
+            <img src="../../placeholder.svg?height=120&width=120" alt="Pants & Jeans">
+            <span>Pants & Jeans</span>
+          </div>
+          <div class="subcategory-item">
+            <img src="../../placeholder.svg?height=120&width=120" alt="Skirts">
+            <span>Skirts</span>
+          </div>
+          <div class="subcategory-item">
+            <img src="../../placeholder.svg?height=120&width=120" alt="Outerwear">
+            <span>Outerwear</span>
+          </div>
+          <div class="subcategory-item">
+            <img src="../../placeholder.svg?height=120&width=120" alt="Lingerie">
+            <span>Lingerie</span>
+          </div>
+          <div class="subcategory-item">
+            <img src="../../placeholder.svg?height=120&width=120" alt="Shoes">
+            <span>Shoes</span>
+          </div>
+          <div class="subcategory-item">
+            <img src="../../placeholder.svg?height=120&width=120" alt="Bags">
+            <span>Bags</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-products">
+      <div class="container">
+        <div class="section-header">
+          <h2>TRENDING IN WOMEN'S FASHION</h2>
+        </div>
+        <div class="product-grid">
+          <div class="product-card">
+            <div class="product-image">
+              <img src="../../placeholder.svg?height=180&width=180" alt="Summer Dress">
+              <div class="discount-tag">20% OFF</div>
+            </div>
+            <div class="product-info">
+              <div class="product-name">Floral Summer Dress</div>
+              <div class="product-price">
+                <span class="current-price">$24.99</span>
+                <span class="original-price">$31.99</span>
+              </div>
+              <div class="product-sold">2.8k sold</div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-image">
+              <img src="../../placeholder.svg?height=180&width=180" alt="Women's Blouse">
+              <div class="discount-tag">15% OFF</div>
+            </div>
+            <div class="product-info">
+              <div class="product-name">Casual Women's Blouse</div>
+              <div class="product-price">
+                <span class="current-price">$16.99</span>
+                <span class="original-price">$19.99</span>
+              </div>
+              <div class="product-sold">1.5k sold</div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-image">
+              <img src="../../placeholder.svg?height=180&width=180" alt="Skinny Jeans">
+            </div>
+            <div class="product-info">
+              <div class="product-name">High Waist Skinny Jeans</div>
+              <div class="product-price">
+                <span class="current-price">$22.50</span>
+              </div>
+              <div class="product-sold">3.2k sold</div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-image">
+              <img src="../../placeholder.svg?height=180&width=180" alt="Handbag">
+              <div class="discount-tag">30% OFF</div>
+            </div>
+            <div class="product-info">
+              <div class="product-name">Designer Shoulder Handbag</div>
+              <div class="product-price">
+                <span class="current-price">$35.99</span>
+                <span class="original-price">$51.99</span>
+              </div>
+              <div class="product-sold">950 sold</div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-image">
+              <img src="../../placeholder.svg?height=180&width=180" alt="Women's Shoes">
+            </div>
+            <div class="product-info">
+              <div class="product-name">Comfortable Flat Shoes</div>
+              <div class="product-price">
+                <span class="current-price">$29.99</span>
+              </div>
+              <div class="product-sold">2.1k sold</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Popular Brands -->
+    <section class="popular-brands">
+      <div class="container">
+        <div class="section-header">
+          <h2>POPULAR BRANDS</h2>
+        </div>
+        <div class="brands-grid">
+          <div class="brand-item">
+            <img src="../../placeholder.svg?height=100&width=100" alt="Brand 1">
+          </div>
+          <div class="brand-item">
+            <img src="../../placeholder.svg?height=100&width=100" alt="Brand 2">
+          </div>
+          <div class="brand-item">
+            <img src="../../placeholder.svg?height=100&width=100" alt="Brand 3">
+          </div>
+          <div class="brand-item">
+            <img src="../../placeholder.svg?height=100&width=100" alt="Brand 4">
+          </div>
+          <div class="brand-item">
+            <img src="../../placeholder.svg?height=100&width=100" alt="Brand 5">
+          </div>
+          <div class="brand-item">
+            <img src="../../placeholder.svg?height=100&width=100" alt="Brand 6">
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Component (Inline) -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Customer Service</h3>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">How to Buy</a></li>
+            <li><a href="#">Shipping & Delivery</a></li>
+            <li><a href="#">Returns & Refunds</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>About Us</h3>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Media Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Payment Methods</h3>
+          <div class="payment-icons">
+            <i class="fab fa-cc-visa"></i>
+            <i class="fab fa-cc-mastercard"></i>
+            <i class="fab fa-cc-paypal"></i>
+            <i class="fab fa-cc-amex"></i>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023 Online Shopping Mall. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

@@ -4,9 +4,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Com Shop</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>E-Commerce Shop</title>
+    <link rel="stylesheet" href="./src/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Additional styles to ensure the logo is small */
+        .logo img {
+            max-height: 100px;
+            width: auto;
+        }
+
+        /* Fallback styles in case the CSS file doesn't load */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .top-nav {
+            background-color: #ee4d2d;
+            padding: 8px 0;
+            font-size: 13px;
+        }
+
+        .top-nav a,
+        .top-nav .divider {
+            color: white;
+        }
+
+        .main-header {
+            padding: 15px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .category-nav {
+            background-color: white;
+            padding: 10px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+    </style>
+    <script>
+        // Flash Sale Countdown Timer
+        document.addEventListener('DOMContentLoaded', function () {
+            // Set the date we're counting down to (24 hours from now)
+            const countDownDate = new Date().getTime() + (24 * 60 * 60 * 1000);
+
+            // Update the countdown every 1 second
+            const countdownTimer = setInterval(function () {
+                // Get current time
+                const now = new Date().getTime();
+
+                // Find the distance between now and the countdown date
+                const distance = countDownDate - now;
+
+                // Time calculations for hours, minutes and seconds
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                // Display the result
+                const hoursElement = document.getElementById("hours");
+                const minutesElement = document.getElementById("minutes");
+                const secondsElement = document.getElementById("seconds");
+
+                if (hoursElement && minutesElement && secondsElement) {
+                    hoursElement.innerHTML = hours.toString().padStart(2, "0");
+                    minutesElement.innerHTML = minutes.toString().padStart(2, "0");
+                    secondsElement.innerHTML = seconds.toString().padStart(2, "0");
+                }
+
+                // If the countdown is finished, clear the interval
+                if (distance < 0) {
+                    clearInterval(countdownTimer);
+                    if (hoursElement && minutesElement && secondsElement) {
+                        hoursElement.innerHTML = "00";
+                        minutesElement.innerHTML = "00";
+                        secondsElement.innerHTML = "00";
+                    }
+                }
+            }, 1000);
+
+            // Carousel functionality
+            let currentSlide = 0;
+            const slides = [
+                "placeholder.svg?height=300&width=800",
+                "placeholder.svg?height=300&width=800&text=Banner+2",
+                "placeholder.svg?height=300&width=800&text=Banner+3"
+            ];
+
+            const carouselInner = document.querySelector('.carousel-inner');
+            if (carouselInner) {
+                showSlide(currentSlide);
+                setInterval(nextSlide, 5000);
+            }
+
+            function showSlide(index) {
+                let html = '';
+                slides.forEach((slide, i) => {
+                    const activeClass = i === index ? 'active' : '';
+                    html += `
+                        <div class="carousel-item ${activeClass}">
+                            <img src="${slide}" alt="Promotion Banner ${i + 1}">
+                        </div>
+                    `;
+                });
+                carouselInner.innerHTML = html;
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }
+
+            window.prevSlide = function () {
+                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                showSlide(currentSlide);
+            };
+
+            window.nextSlide = function () {
+                nextSlide();
+            };
+        });
+    </script>
 </head>
 
 <body>
@@ -39,8 +164,8 @@
     <header class="main-header">
         <div class="container">
             <div class="logo">
-                <a href="#">
-                    <img src="/placeholder.svg?height=50&width=150" alt="Main Logo">
+                <a href="./index.html">
+                    <img src="./placeholder.svg?height=25&width=75" alt="E-Commerce Shop">
                 </a>
             </div>
             <div class="search-bar">
@@ -61,9 +186,9 @@
     <nav class="category-nav">
         <div class="container">
             <ul>
-                <li><a href="#">Women's Fashion</a></li>
-                <li><a href="#">Men's Fashion</a></li>
-                <li><a href="#">Phones & Gadgets</a></li>
+                <li><a href="./src/pages/womens-fashion.html">Women's Fashion</a></li>
+                <li><a href="./src/pages/mens-fashion.html">Men's Fashion</a></li>
+                <li><a href="./src/pages/phones-gadgets.html">Phones & Gadgets</a></li>
                 <li><a href="#">Electronics</a></li>
                 <li><a href="#">Home & Living</a></li>
                 <li><a href="#">Health & Beauty</a></li>
@@ -77,92 +202,70 @@
 
     <!-- Main Content -->
     <main>
-        <!-- Banner Carousel -->
-        <section class="banner">
+        <!-- Banner Slider -->
+        <section class="banner-slider">
             <div class="container">
-                <div class="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="/placeholder.svg?height=300&width=800" alt="Promotion Banner">
-                        </div>
-                    </div>
-                    <button class="carousel-control prev" onclick="prevSlide()">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="carousel-control next" onclick="nextSlide()">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                </div>
-                <div class="side-banners">
-                    <img src="/placeholder.svg?height=145&width=390" alt="Side Banner 1">
-                    <img src="/placeholder.svg?height=145&width=390" alt="Side Banner 2">
+                <div class="main-banner">
+                    <img src="./placeholder.svg?height=300&width=1200" alt="Main Banner">
                 </div>
             </div>
         </section>
 
-        <!-- Category Icons -->
-        <section class="category-icons">
+        <!-- Featured Categories -->
+        <section class="featured-categories">
             <div class="container">
+                <div class="section-title">
+                    <h2>FEATURED CATEGORIES</h2>
+                    <a href="#" class="see-all">See All <i class="fas fa-chevron-right"></i></a>
+                </div>
                 <div class="category-grid">
-                    <div class="category-item">
-                        <div class="category-icon">
-                            <img src="/placeholder.svg?height=45&width=45" alt="Free Shipping">
+                    <div class="category-card">
+                        <div class="category-image">
+                            <img src="./placeholder.svg?height=120&width=120" alt="Women's Fashion">
                         </div>
-                        <span>Free Shipping</span>
+                        <div class="category-name">Women's Fashion</div>
                     </div>
-                    <div class="category-item">
-                        <div class="category-icon">
-                            <img src="/placeholder.svg?height=45&width=45" alt="Flash Sale">
+                    <div class="category-card">
+                        <div class="category-image">
+                            <img src="./placeholder.svg?height=120&width=120" alt="Men's Fashion">
                         </div>
-                        <span>Flash Sale</span>
+                        <div class="category-name">Men's Fashion</div>
                     </div>
-                    <div class="category-item">
-                        <div class="category-icon">
-                            <img src="/placeholder.svg?height=45&width=45" alt="Shop Mall">
+                    <div class="category-card">
+                        <div class="category-image">
+                            <img src="./placeholder.svg?height=120&width=120" alt="Phones & Gadgets">
                         </div>
-                        <span>Shop Mall</span>
+                        <div class="category-name">Phones & Gadgets</div>
                     </div>
-                    <div class="category-item">
-                        <div class="category-icon">
-                            <img src="/placeholder.svg?height=45&width=45" alt="New Arrivals">
+                    <div class="category-card">
+                        <div class="category-image">
+                            <img src="./placeholder.svg?height=120&width=120" alt="Electronics">
                         </div>
-                        <span>New Arrivals</span>
+                        <div class="category-name">Electronics</div>
                     </div>
-                    <div class="category-item">
-                        <div class="category-icon">
-                            <img src="/placeholder.svg?height=45&width=45" alt="Coins">
+                    <div class="category-card">
+                        <div class="category-image">
+                            <img src="./placeholder.svg?height=120&width=120" alt="Beauty">
                         </div>
-                        <span>Coins</span>
+                        <div class="category-name">Beauty</div>
                     </div>
-                    <div class="category-item">
-                        <div class="category-icon">
-                            <img src="/placeholder.svg?height=45&width=45" alt="Vouchers">
+                    <div class="category-card">
+                        <div class="category-image">
+                            <img src="./placeholder.svg?height=120&width=120" alt="Home & Living">
                         </div>
-                        <span>Vouchers</span>
+                        <div class="category-name">Home & Living</div>
                     </div>
-                    <div class="category-item">
-                        <div class="category-icon">
-                            <img src="/placeholder.svg?height=45&width=45" alt="Top-Up">
+                    <div class="category-card">
+                        <div class="category-image">
+                            <img src="./placeholder.svg?height=120&width=120" alt="Sports & Travel">
                         </div>
-                        <span>Top-Up</span>
+                        <div class="category-name">Sports & Travel</div>
                     </div>
-                    <div class="category-item">
-                        <div class="category-icon">
-                            <img src="/placeholder.svg?height=45&width=45" alt="Games">
+                    <div class="category-card">
+                        <div class="category-image">
+                            <img src="./placeholder.svg?height=120&width=120" alt="Baby & Toys">
                         </div>
-                        <span>Games</span>
-                    </div>
-                    <div class="category-item">
-                        <div class="category-icon">
-                            <img src="/placeholder.svg?height=45&width=45" alt="Overseas">
-                        </div>
-                        <span>Overseas</span>
-                    </div>
-                    <div class="category-item">
-                        <div class="category-icon">
-                            <img src="/placeholder.svg?height=45&width=45" alt="Budget Shop">
-                        </div>
-                        <span>Budget Shop</span>
+                        <div class="category-name">Baby & Toys</div>
                     </div>
                 </div>
             </div>
@@ -171,393 +274,427 @@
         <!-- Flash Sale -->
         <section class="flash-sale">
             <div class="container">
-                <div class="section-header">
-                    <h2>FLASH SALE</h2>
+                <div class="section-title">
+                    <h2><i class="fas fa-bolt"></i> FLASH SALE</h2>
                     <div class="countdown">
-                        <span>ENDING IN</span>
-                        <div class="timer">
-                            <span id="hours">00</span>
-                            <span>:</span>
-                            <span id="minutes">00</span>
-                            <span>:</span>
-                            <span id="seconds">00</span>
+                        <span>Ending in </span>
+                        <div class="countdown-time">
+                            <div class="countdown-item">
+                                <div class="countdown-value" id="countdown-hours">00</div>
+                                <div class="countdown-label">Hours</div>
+                            </div>
+                            <div class="countdown-item">
+                                <div class="countdown-value" id="countdown-minutes">00</div>
+                                <div class="countdown-label">Mins</div>
+                            </div>
+                            <div class="countdown-item">
+                                <div class="countdown-value" id="countdown-seconds">00</div>
+                                <div class="countdown-label">Secs</div>
+                            </div>
                         </div>
+                        <a href="#" class="see-all">See All <i class="fas fa-chevron-right"></i></a>
                     </div>
-                    <a href="#" class="see-all">See All <i class="fas fa-chevron-right"></i></a>
                 </div>
                 <div class="product-grid">
                     <div class="product-card">
-                        <a
-                            href="product-detail.html?id=1&name=Wireless-Bluetooth-Earbuds&price=25.00&originalprice=50.00&discount=50">
-                            <div class="product-image">
-                                <img src="/placeholder.svg?height=180&width=180" alt="Product 1">
-                                <div class="discount-tag">50% OFF</div>
-                            </div>
-                            <div class="product-info">
-                                <div class="product-name">Wireless Bluetooth Earbuds</div>
-                                <div class="product-price">
-                                    <span class="current-price">$25.00</span>
-                                    <span class="original-price">$50.00</span>
-                                </div>
-                                <div class="product-sold">235 sold</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="product-card">
-                        <a
-                            href="product-detail.html?id=2&name=Smart-Watch-Fitness-Tracker&price=35.00&originalprice=50.00&discount=30">
-                            <div class="product-image">
-                                <img src="/placeholder.svg?height=180&width=180" alt="Product 2">
-                                <div class="discount-tag">30% OFF</div>
-                            </div>
-                            <div class="product-info">
-                                <div class="product-name">Smart Watch Fitness Tracker</div>
-                                <div class="product-price">
-                                    <span class="current-price">$35.00</span>
-                                    <span class="original-price">$50.00</span>
-                                </div>
-                                <div class="product-sold">189 sold</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="product-card">
-                        <a
-                            href="product-detail.html?id=3&name=Portable-Power-Bank-10000mAh&price=18.00&originalprice=30.00&discount=40">
-                            <div class="product-image">
-                                <img src="/placeholder.svg?height=180&width=180" alt="Product 3">
-                                <div class="discount-tag">40% OFF</div>
-                            </div>
-                            <div class="product-info">
-                                <div class="product-name">Portable Power Bank 10000mAh</div>
-                                <div class="product-price">
-                                    <span class="current-price">$18.00</span>
-                                    <span class="original-price">$30.00</span>
-                                </div>
-                                <div class="product-sold">312 sold</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="product-card">
-                        <a
-                            href="product-detail.html?id=4&name=Wireless-Phone-Charger&price=15.00&originalprice=20.00&discount=25">
-                            <div class="product-image">
-                                <img src="/placeholder.svg?height=180&width=180" alt="Product 4">
-                                <div class="discount-tag">25% OFF</div>
-                            </div>
-                            <div class="product-info">
-                                <div class="product-name">Wireless Phone Charger</div>
-                                <div class="product-price">
-                                    <span class="current-price">$15.00</span>
-                                    <span class="original-price">$20.00</span>
-                                </div>
-                                <div class="product-sold">156 sold</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="product-card">
-                        <a
-                            href="product-detail.html?id=5&name=Bluetooth-Speaker-Waterproof&price=20.00&originalprice=50.00&discount=60">
-                            <div class="product-image">
-                                <img src="/placeholder.svg?height=180&width=180" alt="Product 5">
-                                <div class="discount-tag">60% OFF</div>
-                            </div>
-                            <div class="product-info">
-                                <div class="product-name">Bluetooth Speaker Waterproof</div>
-                                <div class="product-price">
-                                    <span class="current-price">$20.00</span>
-                                    <span class="original-price">$50.00</span>
-                                </div>
-                                <div class="product-sold">278 sold</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="product-card">
-                        <a
-                            href="product-detail.html?id=6&name=Phone-Camera-Lens-Kit&price=22.00&originalprice=40.00&discount=45">
-                            <div class="product-image">
-                                <img src="/placeholder.svg?height=180&width=180" alt="Product 6">
-                                <div class="discount-tag">45% OFF</div>
-                            </div>
-                            <div class="product-info">
-                                <div class="product-name">Phone Camera Lens Kit</div>
-                                <div class="product-price">
-                                    <span class="current-price">$22.00</span>
-                                    <span class="original-price">$40.00</span>
-                                </div>
-                                <div class="product-sold">98 sold</div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Shopee Mall -->
-        <section class="shop-mall">
-            <div class="container">
-                <div class="section-header">
-                    <h2>SHOP MALL</h2>
-                    <div class="mall-features">
-                        <span><i class="fas fa-check-circle"></i> 100% Authentic</span>
-                        <span><i class="fas fa-truck"></i> Free Shipping</span>
-                        <span><i class="fas fa-undo"></i> 15 Days Return</span>
-                    </div>
-                    <a href="#" class="see-all">See All <i class="fas fa-chevron-right"></i></a>
-                </div>
-                <div class="mall-banners">
-                    <div class="mall-main-banner">
-                        <img src="/placeholder.svg?height=240&width=390" alt="Mall Banner">
-                    </div>
-                    <div class="mall-brand-grid">
-                        <div class="mall-brand">
-                            <img src="/placeholder.svg?height=110&width=110" alt="Brand 1">
-                        </div>
-                        <div class="mall-brand">
-                            <img src="/placeholder.svg?height=110&width=110" alt="Brand 2">
-                        </div>
-                        <div class="mall-brand">
-                            <img src="/placeholder.svg?height=110&width=110" alt="Brand 3">
-                        </div>
-                        <div class="mall-brand">
-                            <img src="/placeholder.svg?height=110&width=110" alt="Brand 4">
-                        </div>
-                        <div class="mall-brand">
-                            <img src="/placeholder.svg?height=110&width=110" alt="Brand 5">
-                        </div>
-                        <div class="mall-brand">
-                            <img src="/placeholder.svg?height=110&width=110" alt="Brand 6">
-                        </div>
-                        <div class="mall-brand">
-                            <img src="/placeholder.svg?height=110&width=110" alt="Brand 7">
-                        </div>
-                        <div class="mall-brand">
-                            <img src="/placeholder.svg?height=110&width=110" alt="Brand 8">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Recommended Products -->
-        <section class="recommended">
-            <div class="container">
-                <div class="section-header">
-                    <h2>RECOMMENDED FOR YOU</h2>
-                </div>
-                <div class="product-grid large-grid">
-                    <!-- First row of products -->
-                    <div class="product-card">
                         <div class="product-image">
-                            <img src="/placeholder.svg?height=180&width=180" alt="Recommended Product 1">
+                            <a
+                                href="./product-detail.html?id=1&name=Wireless-Bluetooth-Earbuds&price=25.00&originalprice=50.00&discount=50">
+                                <img src="./placeholder.svg?height=180&width=180" alt="Wireless Bluetooth Earbuds">
+                            </a>
+                            <div class="discount-tag">50% OFF</div>
+                            <button class="quick-view-btn" title="Quick View"><i class="far fa-eye"></i></button>
+                            <button class="add-to-wishlist-btn" title="Add to Wishlist"><i
+                                    class="far fa-heart"></i></button>
                         </div>
                         <div class="product-info">
-                            <div class="product-name">Wireless Gaming Mouse RGB Backlit</div>
+                            <div class="product-name">
+                                <a
+                                    href="./product-detail.html?id=1&name=Wireless-Bluetooth-Earbuds&price=25.00&originalprice=50.00&discount=50">Wireless
+                                    Bluetooth Earbuds</a>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">$25.00</span>
+                                <span class="original-price">$50.00</span>
+                            </div>
+                            <div class="product-sold">5k sold</div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <a
+                                href="./product-detail.html?id=2&name=Smart-Watch-Fitness-Tracker&price=35.99&originalprice=59.99&discount=40">
+                                <img src="./placeholder.svg?height=180&width=180" alt="Smart Watch Fitness Tracker">
+                            </a>
+                            <div class="discount-tag">40% OFF</div>
+                            <button class="quick-view-btn" title="Quick View"><i class="far fa-eye"></i></button>
+                            <button class="add-to-wishlist-btn" title="Add to Wishlist"><i
+                                    class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-name">
+                                <a
+                                    href="./product-detail.html?id=2&name=Smart-Watch-Fitness-Tracker&price=35.99&originalprice=59.99&discount=40">Smart
+                                    Watch Fitness Tracker</a>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">$35.99</span>
+                                <span class="original-price">$59.99</span>
+                            </div>
+                            <div class="product-sold">4.3k sold</div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <a
+                                href="./product-detail.html?id=3&name=Portable-Power-Bank-10000mAh&price=18.99&originalprice=29.99&discount=37">
+                                <img src="./placeholder.svg?height=180&width=180" alt="Portable Power Bank">
+                            </a>
+                            <div class="discount-tag">37% OFF</div>
+                            <button class="quick-view-btn" title="Quick View"><i class="far fa-eye"></i></button>
+                            <button class="add-to-wishlist-btn" title="Add to Wishlist"><i
+                                    class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-name">
+                                <a
+                                    href="./product-detail.html?id=3&name=Portable-Power-Bank-10000mAh&price=18.99&originalprice=29.99&discount=37">Portable
+                                    Power Bank 10000mAh</a>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">$18.99</span>
+                                <span class="original-price">$29.99</span>
+                            </div>
+                            <div class="product-sold">3.8k sold</div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <a
+                                href="./product-detail.html?id=4&name=Wireless-Charging-Pad&price=15.99&originalprice=24.99&discount=36">
+                                <img src="./placeholder.svg?height=180&width=180" alt="Wireless Charging Pad">
+                            </a>
+                            <div class="discount-tag">36% OFF</div>
+                            <button class="quick-view-btn" title="Quick View"><i class="far fa-eye"></i></button>
+                            <button class="add-to-wishlist-btn" title="Add to Wishlist"><i
+                                    class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-name">
+                                <a
+                                    href="./product-detail.html?id=4&name=Wireless-Charging-Pad&price=15.99&originalprice=24.99&discount=36">Wireless
+                                    Charging Pad</a>
+                            </div>
                             <div class="product-price">
                                 <span class="current-price">$15.99</span>
+                                <span class="original-price">$24.99</span>
                             </div>
-                            <div class="product-sold">1.2k sold</div>
+                            <div class="product-sold">2.9k sold</div>
                         </div>
                     </div>
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="/placeholder.svg?height=180&width=180" alt="Recommended Product 2">
+                            <a
+                                href="./product-detail.html?id=5&name=Bluetooth-Speaker-Waterproof&price=22.99&originalprice=39.99&discount=43">
+                                <img src="./placeholder.svg?height=180&width=180" alt="Bluetooth Speaker">
+                            </a>
+                            <div class="discount-tag">43% OFF</div>
+                            <button class="quick-view-btn" title="Quick View"><i class="far fa-eye"></i></button>
+                            <button class="add-to-wishlist-btn" title="Add to Wishlist"><i
+                                    class="far fa-heart"></i></button>
                         </div>
                         <div class="product-info">
-                            <div class="product-name">Men's Casual T-Shirt Cotton</div>
+                            <div class="product-name">
+                                <a
+                                    href="./product-detail.html?id=5&name=Bluetooth-Speaker-Waterproof&price=22.99&originalprice=39.99&discount=43">Bluetooth
+                                    Speaker Waterproof</a>
+                            </div>
                             <div class="product-price">
-                                <span class="current-price">$9.99</span>
+                                <span class="current-price">$22.99</span>
+                                <span class="original-price">$39.99</span>
                             </div>
                             <div class="product-sold">3.5k sold</div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Popular Brands -->
+        <section class="popular-brands">
+            <div class="container">
+                <div class="section-title">
+                    <h2>POPULAR BRANDS</h2>
+                    <a href="#" class="see-all">See All <i class="fas fa-chevron-right"></i></a>
+                </div>
+                <div class="brand-grid">
+                    <div class="brand-card">
+                        <a href="./brand-nike.html">
+                            <img src="./placeholder.svg?height=80&width=80" alt="Nike">
+                            <div class="brand-name">Nike</div>
+                        </a>
+                    </div>
+                    <div class="brand-card">
+                        <a href="./brand-adidas.html">
+                            <img src="./placeholder.svg?height=80&width=80" alt="Adidas">
+                            <div class="brand-name">Adidas</div>
+                        </a>
+                    </div>
+                    <div class="brand-card">
+                        <a href="#">
+                            <img src="./placeholder.svg?height=80&width=80" alt="Samsung">
+                            <div class="brand-name">Samsung</div>
+                        </a>
+                    </div>
+                    <div class="brand-card">
+                        <a href="#">
+                            <img src="./placeholder.svg?height=80&width=80" alt="Apple">
+                            <div class="brand-name">Apple</div>
+                        </a>
+                    </div>
+                    <div class="brand-card">
+                        <a href="#">
+                            <img src="./placeholder.svg?height=80&width=80" alt="Sony">
+                            <div class="brand-name">Sony</div>
+                        </a>
+                    </div>
+                    <div class="brand-card">
+                        <a href="#">
+                            <img src="./placeholder.svg?height=80&width=80" alt="Xiaomi">
+                            <div class="brand-name">Xiaomi</div>
+                        </a>
+                    </div>
+                    <div class="brand-card">
+                        <a href="#">
+                            <img src="./placeholder.svg?height=80&width=80" alt="Puma">
+                            <div class="brand-name">Puma</div>
+                        </a>
+                    </div>
+                    <div class="brand-card">
+                        <a href="#">
+                            <img src="./placeholder.svg?height=80&width=80" alt="Dyson">
+                            <div class="brand-name">Dyson</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Just For You -->
+        <section class="just-for-you">
+            <div class="container">
+                <div class="section-title">
+                    <h2>JUST FOR YOU</h2>
+                </div>
+                <div class="product-grid">
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="/placeholder.svg?height=180&width=180" alt="Recommended Product 3">
+                            <a href="./product-detail.html">
+                                <img src="./placeholder.svg?height=180&width=180" alt="Wireless Gaming Mouse">
+                            </a>
+                            <button class="quick-view-btn" title="Quick View"><i class="far fa-eye"></i></button>
+                            <button class="add-to-wishlist-btn" title="Add to Wishlist"><i
+                                    class="far fa-heart"></i></button>
                         </div>
                         <div class="product-info">
-                            <div class="product-name">Women's Summer Dress Floral</div>
+                            <div class="product-name">
+                                <a href="./product-detail.html">Wireless Gaming Mouse RGB Backlit</a>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">$15.99</span>
+                            </div>
+                            <div class="product-sold">1.8k sold</div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <a href="./product-detail.html">
+                                <img src="./placeholder.svg?height=180&width=180" alt="Men's Casual T-Shirt">
+                            </a>
+                            <button class="quick-view-btn" title="Quick View"><i class="far fa-eye"></i></button>
+                            <button class="add-to-wishlist-btn" title="Add to Wishlist"><i
+                                    class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-name">
+                                <a href="./product-detail.html">Men's Casual T-Shirt Cotton</a>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">$9.99</span>
+                            </div>
+                            <div class="product-sold">2.5k sold</div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <a href="./product-detail.html">
+                                <img src="./placeholder.svg?height=180&width=180" alt="Women's Summer Dress">
+                            </a>
+                            <button class="quick-view-btn" title="Quick View"><i class="far fa-eye"></i></button>
+                            <button class="add-to-wishlist-btn" title="Add to Wishlist"><i
+                                    class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-name">
+                                <a href="./product-detail.html">Women's Summer Dress Floral</a>
+                            </div>
                             <div class="product-price">
                                 <span class="current-price">$18.50</span>
-                            </div>
-                            <div class="product-sold">2.8k sold</div>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="/placeholder.svg?height=180&width=180" alt="Recommended Product 4">
-                        </div>
-                        <div class="product-info">
-                            <div class="product-name">Kitchen Utensil Set Stainless Steel</div>
-                            <div class="product-price">
-                                <span class="current-price">$24.99</span>
-                            </div>
-                            <div class="product-sold">1.9k sold</div>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="/placeholder.svg?height=180&width=180" alt="Recommended Product 5">
-                        </div>
-                        <div class="product-info">
-                            <div class="product-name">Smartphone Holder Car Mount</div>
-                            <div class="product-price">
-                                <span class="current-price">$7.99</span>
-                            </div>
-                            <div class="product-sold">5.2k sold</div>
-                        </div>
-                    </div>
-                    <!-- Second row of products -->
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="/placeholder.svg?height=180&width=180" alt="Recommended Product 6">
-                        </div>
-                        <div class="product-info">
-                            <div class="product-name">Laptop Backpack USB Charging Port</div>
-                            <div class="product-price">
-                                <span class="current-price">$29.99</span>
-                            </div>
-                            <div class="product-sold">2.3k sold</div>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="/placeholder.svg?height=180&width=180" alt="Recommended Product 7">
-                        </div>
-                        <div class="product-info">
-                            <div class="product-name">Wireless Keyboard and Mouse Combo</div>
-                            <div class="product-price">
-                                <span class="current-price">$32.50</span>
                             </div>
                             <div class="product-sold">1.7k sold</div>
                         </div>
                     </div>
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="/placeholder.svg?height=180&width=180" alt="Recommended Product 8">
+                            <a href="./product-detail.html">
+                                <img src="./placeholder.svg?height=180&width=180" alt="Kitchen Utensil Set">
+                            </a>
+                            <button class="quick-view-btn" title="Quick View"><i class="far fa-eye"></i></button>
+                            <button class="add-to-wishlist-btn" title="Add to Wishlist"><i
+                                    class="far fa-heart"></i></button>
                         </div>
                         <div class="product-info">
-                            <div class="product-name">LED Desk Lamp with USB Port</div>
+                            <div class="product-name">
+                                <a href="./product-detail.html">Kitchen Utensil Set Stainless Steel</a>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">$24.99</span>
+                            </div>
+                            <div class="product-sold">3.1k sold</div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <a href="./product-detail.html">
+                                <img src="./placeholder.svg?height=180&width=180" alt="Smartphone Holder">
+                            </a>
+                            <button class="quick-view-btn" title="Quick View"><i class="far fa-eye"></i></button>
+                            <button class="add-to-wishlist-btn" title="Add to Wishlist"><i
+                                    class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-name">
+                                <a href="./product-detail.html">Smartphone Holder Car Mount</a>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">$7.99</span>
+                            </div>
+                            <div class="product-sold">4.2k sold</div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <a href="./product-detail.html">
+                                <img src="./placeholder.svg?height=180&width=180" alt="Laptop Backpack">
+                            </a>
+                            <button class="quick-view-btn" title="Quick View"><i class="far fa-eye"></i></button>
+                            <button class="add-to-wishlist-btn" title="Add to Wishlist"><i
+                                    class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-name">
+                                <a href="./product-detail.html">Laptop Backpack USB Charging Port</a>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">$29.99</span>
+                            </div>
+                            <div class="product-sold">2.2k sold</div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <a href="./product-detail.html">
+                                <img src="./placeholder.svg?height=180&width=180" alt="Wireless Keyboard and Mouse">
+                            </a>
+                            <button class="quick-view-btn" title="Quick View"><i class="far fa-eye"></i></button>
+                            <button class="add-to-wishlist-btn" title="Add to Wishlist"><i
+                                    class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-name">
+                                <a href="./product-detail.html">Wireless Keyboard and Mouse Combo</a>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">$32.50</span>
+                            </div>
+                            <div class="product-sold">1.9k sold</div>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <a href="./product-detail.html">
+                                <img src="./placeholder.svg?height=180&width=180" alt="LED Desk Lamp">
+                            </a>
+                            <button class="quick-view-btn" title="Quick View"><i class="far fa-eye"></i></button>
+                            <button class="add-to-wishlist-btn" title="Add to Wishlist"><i
+                                    class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-name">
+                                <a href="./product-detail.html">LED Desk Lamp with USB Port</a>
+                            </div>
                             <div class="product-price">
                                 <span class="current-price">$19.99</span>
                             </div>
-                            <div class="product-sold">4.1k sold</div>
+                            <div class="product-sold">2.7k sold</div>
                         </div>
                     </div>
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="/placeholder.svg?height=180&width=180" alt="Recommended Product 9">
-                        </div>
-                        <div class="product-info">
-                            <div class="product-name">Bluetooth Headphones Over Ear</div>
-                            <div class="product-price">
-                                <span class="current-price">$45.00</span>
-                            </div>
-                            <div class="product-sold">3.2k sold</div>
-                        </div>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="/placeholder.svg?height=180&width=180" alt="Recommended Product 10">
-                        </div>
-                        <div class="product-info">
-                            <div class="product-name">Fitness Resistance Bands Set</div>
-                            <div class="product-price">
-                                <span class="current-price">$12.99</span>
-                            </div>
-                            <div class="product-sold">6.7k sold</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="load-more">
-                    <button>Load More</button>
                 </div>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer>
+    <footer class="footer">
         <div class="container">
-            <div class="footer-top">
-                <div class="footer-column">
-                    <h3>CUSTOMER SERVICE</h3>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Customer Service</h3>
                     <ul>
                         <li><a href="#">Help Center</a></li>
                         <li><a href="#">How to Buy</a></li>
                         <li><a href="#">Shipping & Delivery</a></li>
-                        <li><a href="#">Return & Refund</a></li>
+                        <li><a href="#">Returns & Refunds</a></li>
                         <li><a href="#">Contact Us</a></li>
                     </ul>
                 </div>
-                <div class="footer-column">
-                    <h3>ABOUT E-COM SHOP</h3>
+                <div class="footer-section">
+                    <h3>About Us</h3>
                     <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">E-Com Careers</a></li>
-                        <li><a href="#">E-Com Policies</a></li>
+                        <li><a href="#">About E-Commerce Shop</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
                         <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Seller Centre</a></li>
+                        <li><a href="#">Media Contact</a></li>
                     </ul>
                 </div>
-                <div class="footer-column">
-                    <h3>PAYMENT</h3>
+                <div class="footer-section">
+                    <h3>Payment Methods</h3>
                     <div class="payment-icons">
-                        <div class="payment-icon"><img src="/placeholder.svg?height=30&width=45" alt="Visa"></div>
-                        <div class="payment-icon"><img src="/placeholder.svg?height=30&width=45" alt="Mastercard"></div>
-                        <div class="payment-icon"><img src="/placeholder.svg?height=30&width=45" alt="JCB"></div>
-                        <div class="payment-icon"><img src="/placeholder.svg?height=30&width=45" alt="American Express">
-                        </div>
-                        <div class="payment-icon"><img src="/placeholder.svg?height=30&width=45" alt="COD"></div>
-                        <div class="payment-icon"><img src="/placeholder.svg?height=30&width=45" alt="Bank Transfer">
-                        </div>
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-paypal"></i>
+                        <i class="fab fa-cc-amex"></i>
                     </div>
                 </div>
-                <div class="footer-column">
-                    <h3>FOLLOW US</h3>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
-                        <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
-                        <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
-                        <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                    </div>
-                </div>
-                <div class="footer-column">
-                    <h3>DOWNLOAD OUR APP</h3>
-                    <div class="app-download">
-                        <div class="qr-code">
-                            <img src="/placeholder.svg?height=80&width=80" alt="QR Code">
-                        </div>
-                        <div class="app-links">
-                            <a href="#"><img src="/placeholder.svg?height=35&width=120" alt="App Store"></a>
-                            <a href="#"><img src="/placeholder.svg?height=35&width=120" alt="Google Play"></a>
-                            <a href="#"><img src="/placeholder.svg?height=35&width=120" alt="App Gallery"></a>
-                        </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <div class="copyright">
-                    © 2025 E-Com Shop. All Rights Reserved.
-                </div>
-                <div class="country">
-                    Country & Region:
-                    <a href="#">Singapore</a>
-                    <a href="#">Indonesia</a>
-                    <a href="#">Taiwan</a>
-                    <a href="#">Thailand</a>
-                    <a href="#">Malaysia</a>
-                    <a href="#">Vietnam</a>
-                    <a href="#">Philippines</a>
-                    <a href="#">Brazil</a>
-                    <a href="#">Mexico</a>
-                    <a href="#">Colombia</a>
-                    <a href="#">Chile</a>
-                </div>
+                <p>&copy; 2023 E-Commerce Shop. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Scripts -->
+    <script src="./src/js/main.js"></script>
 </body>
 
 </html>

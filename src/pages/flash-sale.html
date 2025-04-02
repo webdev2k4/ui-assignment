@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flash Sale - E-Com Shop</title>
+  <link rel="stylesheet" href="/src/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Load the component loader utility -->
+  <script src="/src/utils/component-loader.js"></script>
+</head>
+
+<body>
+  <!-- Header Components -->
+  <div data-component="header"></div>
+  <div data-component="navigation"></div>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Flash Sale Banner -->
+    <section class="flash-sale-banner">
+      <div class="container">
+        <img src="/placeholder.svg?height=250&width=1200" alt="Flash Sale">
+      </div>
+    </section>
+
+    <!-- Flash Sale Timer -->
+    <section class="flash-sale-timer">
+      <div class="container">
+        <div class="countdown">
+          <div class="countdown-text">Ending in</div>
+          <div class="countdown-timer">
+            <div class="timer-item">
+              <div class="timer-value">10</div>
+              <div class="timer-label">Hours</div>
+            </div>
+            <div class="timer-separator">:</div>
+            <div class="timer-item">
+              <div class="timer-value">35</div>
+              <div class="timer-label">Mins</div>
+            </div>
+            <div class="timer-separator">:</div>
+            <div class="timer-item">
+              <div class="timer-value">22</div>
+              <div class="timer-label">Secs</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Flash Sale Products -->
+    <section class="flash-sale-products">
+      <div class="container">
+        <div class="product-grid">
+          <div class="product-card">
+            <a
+              href="product-detail.html?id=1&name=Wireless-Bluetooth-Earbuds&price=25.00&originalprice=50.00&discount=50">
+              <div class="product-image">
+                <img src="/placeholder.svg?height=180&width=180" alt="Product 1">
+                <div class="discount-tag">50% OFF</div>
+              </div>
+              <div class="product-info">
+                <div class="product-name">Wireless Bluetooth Earbuds</div>
+                <div class="product-price">
+                  <span class="current-price">$25.00</span>
+                  <span class="original-price">$50.00</span>
+                </div>
+                <div class="product-progress">
+                  <div class="progress-bar">
+                    <div class="progress" style="width: 75%"></div>
+                  </div>
+                  <span class="sold-text">75% SOLD</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="product-card">
+            <a
+              href="product-detail.html?id=2&name=Smart-Watch-Fitness-Tracker&price=35.00&originalprice=50.00&discount=30">
+              <div class="product-image">
+                <img src="/placeholder.svg?height=180&width=180" alt="Product 2">
+                <div class="discount-tag">30% OFF</div>
+              </div>
+              <div class="product-info">
+                <div class="product-name">Smart Watch Fitness Tracker</div>
+                <div class="product-price">
+                  <span class="current-price">$35.00</span>
+                  <span class="original-price">$50.00</span>
+                </div>
+                <div class="product-progress">
+                  <div class="progress-bar">
+                    <div class="progress" style="width: 60%"></div>
+                  </div>
+                  <span class="sold-text">60% SOLD</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="product-card">
+            <a
+              href="product-detail.html?id=3&name=Portable-Power-Bank-10000mAh&price=18.00&originalprice=30.00&discount=40">
+              <div class="product-image">
+                <img src="/placeholder.svg?height=180&width=180" alt="Product 3">
+                <div class="discount-tag">40% OFF</div>
+              </div>
+              <div class="product-info">
+                <div class="product-name">Portable Power Bank 10000mAh</div>
+                <div class="product-price">
+                  <span class="current-price">$18.00</span>
+                  <span class="original-price">$30.00</span>
+                </div>
+                <div class="product-progress">
+                  <div class="progress-bar">
+                    <div class="progress" style="width: 85%"></div>
+                  </div>
+                  <span class="sold-text">85% SOLD</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="product-card">
+            <a href="product-detail.html?id=4&name=Wireless-Phone-Charger&price=15.00&originalprice=20.00&discount=25">
+              <div class="product-image">
+                <img src="/placeholder.svg?height=180&width=180" alt="Product 4">
+                <div class="discount-tag">25% OFF</div>
+              </div>
+              <div class="product-info">
+                <div class="product-name">Wireless Phone Charger</div>
+                <div class="product-price">
+                  <span class="current-price">$15.00</span>
+                  <span class="original-price">$20.00</span>
+                </div>
+                <div class="product-progress">
+                  <div class="progress-bar">
+                    <div class="progress" style="width: 45%"></div>
+                  </div>
+                  <span class="sold-text">45% SOLD</span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="product-card">
+            <a
+              href="product-detail.html?id=5&name=Bluetooth-Speaker-Waterproof&price=20.00&originalprice=50.00&discount=60">
+              <div class="product-image">
+                <img src="/placeholder.svg?height=180&width=180" alt="Product 5">
+                <div class="discount-tag">60% OFF</div>
+              </div>
+              <div class="product-info">
+                <div class="product-name">Bluetooth Speaker Waterproof</div>
+                <div class="product-price">
+                  <span class="current-price">$20.00</span>
+                  <span class="original-price">$50.00</span>
+                </div>
+                <div class="product-progress">
+                  <div class="progress-bar">
+                    <div class="progress" style="width: 70%"></div>
+                  </div>
+                  <span class="sold-text">70% SOLD</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Coming Soon -->
+    <section class="coming-soon">
+      <div class="container">
+        <div class="section-header">
+          <h2>COMING SOON</h2>
+          <div class="coming-soon-timer">
+            <div class="timer-item">
+              <div class="timer-value">01</div>
+              <div class="timer-label">Day</div>
+            </div>
+            <div class="timer-separator">:</div>
+            <div class="timer-item">
+              <div class="timer-value">12</div>
+              <div class="timer-label">Hours</div>
+            </div>
+            <div class="timer-separator">:</div>
+            <div class="timer-item">
+              <div class="timer-value">00</div>
+              <div class="timer-label">Mins</div>
+            </div>
+          </div>
+        </div>
+        <div class="product-grid coming-soon-products">
+          <div class="product-card upcoming">
+            <div class="product-image">
+              <img src="/placeholder.svg?height=180&width=180" alt="Upcoming Product 1">
+              <div class="discount-tag">70% OFF</div>
+              <div class="upcoming-overlay">
+                <span>Coming at 16:00</span>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-name">4K Ultra HD Smart TV 55"</div>
+              <div class="product-price">
+                <span class="upcoming-price">$299.99</span>
+                <span class="original-price">$999.99</span>
+              </div>
+            </div>
+          </div>
+          <div class="product-card upcoming">
+            <div class="product-image">
+              <img src="/placeholder.svg?height=180&width=180" alt="Upcoming Product 2">
+              <div class="discount-tag">65% OFF</div>
+              <div class="upcoming-overlay">
+                <span>Coming at 16:00</span>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-name">Robot Vacuum Cleaner</div>
+              <div class="product-price">
+                <span class="upcoming-price">$89.99</span>
+                <span class="original-price">$259.99</span>
+              </div>
+            </div>
+          </div>
+          <div class="product-card upcoming">
+            <div class="product-image">
+              <img src="/placeholder.svg?height=180&width=180" alt="Upcoming Product 3">
+              <div class="discount-tag">55% OFF</div>
+              <div class="upcoming-overlay">
+                <span>Coming at 16:00</span>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-name">Air Fryer 5.5L Digital</div>
+              <div class="product-price">
+                <span class="upcoming-price">$44.99</span>
+                <span class="original-price">$99.99</span>
+              </div>
+            </div>
+          </div>
+          <div class="product-card upcoming">
+            <div class="product-image">
+              <img src="/placeholder.svg?height=180&width=180" alt="Upcoming Product 4">
+              <div class="discount-tag">80% OFF</div>
+              <div class="upcoming-overlay">
+                <span>Coming at 16:00</span>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-name">Memory Foam Pillow (2-Pack)</div>
+              <div class="product-price">
+                <span class="upcoming-price">$19.99</span>
+                <span class="original-price">$99.99</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Component -->
+  <div data-component="footer"></div>
+
+  <script src="/src/js/main.js"></script>
+</body>
+
+</html>
