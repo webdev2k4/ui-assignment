@@ -40,7 +40,7 @@ button {
 
 /* Header & Navigation Styles */
 .top-nav {
-  background-color: #f5f5f5;
+  background-color: #ee4d2d;
   padding: 8px 0;
   font-size: 13px;
 }
@@ -62,7 +62,7 @@ button {
 }
 
 .top-nav a:hover {
-  color: #ee4d2d;
+  color: #000000;
 }
 
 .divider {

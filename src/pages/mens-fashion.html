@@ -5,23 +5,190 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Men's Fashion - E-Com Shop</title>
-  <link rel="stylesheet" href="/src/css/styles.css">
+  <link rel="stylesheet" href="../../src/css/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Load the component loader utility -->
-  <script src="/src/utils/component-loader.js"></script>
+  <style>
+    /* Fallback styles in case the CSS file doesn't load */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    .top-nav {
+      background-color: #ee4d2d;
+      padding: 8px 0;
+      font-size: 13px;
+    }
+
+    .top-nav a,
+    .top-nav .divider {
+      color: white;
+    }
+
+    .main-header {
+      padding: 15px 0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .category-nav {
+      background-color: white;
+      padding: 10px 0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .logo img {
+      max-height: 30px;
+      width: auto;
+    }
+
+    .subcategories h2,
+    .featured-products h2,
+    .popular-brands h2 {
+      text-align: center;
+      margin-top: 30px;
+      margin-bottom: 20px;
+    }
+
+    .subcategory-grid,
+    .product-grid,
+    .brands-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 15px;
+    }
+  </style>
+  <!-- Custom component loader for pages directory -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      console.log("Starting page-specific component loader...");
+      const componentElements = document.querySelectorAll('[data-component]');
+      console.log(`Found ${componentElements.length} components to load`);
+
+      componentElements.forEach(element => {
+        const componentName = element.getAttribute('data-component');
+        console.log(`Loading component: ${componentName}`);
+
+        // Use a path relative to pages directory
+        const componentUrl = `../../src/components/${componentName}.html`;
+        console.log(`Fetching component from: ${componentUrl}`);
+
+        fetch(componentUrl)
+          .then(response => {
+            console.log(`Response status for ${componentName}: ${response.status}`);
+            if (!response.ok) {
+              throw new Error(`Failed to load component: ${componentName} (${response.status})`);
+            }
+            return response.text();
+          })
+          .then(html => {
+            console.log(`Successfully loaded component: ${componentName}`);
+            element.innerHTML = html;
+          })
+          .catch(error => {
+            console.error('Error loading component:', error);
+            element.innerHTML = `<div style="color: #d9534f; background-color: #f2dede; padding: 15px; border: 1px solid #ebccd1; border-radius: 4px;">
+              <strong>Error loading component:</strong> ${componentName}
+              <br><small>${error.message}</small>
+            </div>`;
+          });
+      });
+    });
+  </script>
 </head>
 
 <body>
-  <!-- Header Components -->
-  <div data-component="header"></div>
-  <div data-component="navigation"></div>
+  <!-- Header Components (Inline) -->
+  <div class="top-nav">
+    <div class="container">
+      <div class="top-nav-left">
+        <a href="#">Seller Centre</a>
+        <span class="divider">|</span>
+        <a href="#">Start Selling</a>
+        <span class="divider">|</span>
+        <a href="#">Download</a>
+        <span class="divider">|</span>
+        <a href="#">Follow us on</a>
+        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+      </div>
+      <div class="top-nav-right">
+        <a href="#"><i class="far fa-bell"></i> Notifications</a>
+        <a href="#"><i class="far fa-question-circle"></i> Help</a>
+        <a href="#"><i class="fas fa-globe"></i> English</a>
+        <a href="#">Sign Up</a>
+        <span class="divider">|</span>
+        <a href="#">Login</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Header -->
+  <header class="main-header">
+    <div class="container">
+      <div class="logo">
+        <a href="../../index.html">
+          <img src="../../placeholder.svg?height=25&width=75" alt="Main Logo">
+        </a>
+      </div>
+      <div class="search-bar">
+        <input type="text" placeholder="Search for products">
+        <button class="search-button">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+      <div class="cart">
+        <a href="./cart.html">
+          <i class="fas fa-shopping-cart"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation Component (Inline) -->
+  <nav class="category-nav">
+    <div class="container">
+      <ul class="category-list">
+        <li class="category-item">
+          <a href="./womens-fashion.html">Women's Fashion</a>
+        </li>
+        <li class="category-item">
+          <a href="./mens-fashion.html" class="active">Men's Fashion</a>
+        </li>
+        <li class="category-item">
+          <a href="./phones-gadgets.html">Phones & Gadgets</a>
+        </li>
+        <li class="category-item">
+          <a href="#">Home & Lifestyle</a>
+        </li>
+        <li class="category-item">
+          <a href="#">Beauty & Health</a>
+        </li>
+        <li class="category-item">
+          <a href="#">Sports & Outdoors</a>
+        </li>
+        <li class="category-item">
+          <a href="#">Watches & Accessories</a>
+        </li>
+        <li class="category-item">
+          <a href="#">Toys & Games</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
   <!-- Main Content -->
   <main>
     <!-- Category Banner -->
     <section class="category-banner">
       <div class="container">
-        <img src="/placeholder.svg?height=200&width=1200" alt="Men's Fashion Banner">
+        <img src="../../placeholder.svg?height=200&width=1200" alt="Men's Fashion Banner">
       </div>
     </section>
 
@@ -31,35 +198,35 @@
         <h2>BROWSE MEN'S FASHION</h2>
         <div class="subcategory-grid">
           <div class="subcategory-item">
-            <img src="/placeholder.svg?height=120&width=120" alt="T-Shirts">
+            <img src="../../placeholder.svg?height=120&width=120" alt="T-Shirts">
             <span>T-Shirts</span>
           </div>
           <div class="subcategory-item">
-            <img src="/placeholder.svg?height=120&width=120" alt="Shirts">
+            <img src="../../placeholder.svg?height=120&width=120" alt="Shirts">
             <span>Shirts</span>
           </div>
           <div class="subcategory-item">
-            <img src="/placeholder.svg?height=120&width=120" alt="Pants & Jeans">
+            <img src="../../placeholder.svg?height=120&width=120" alt="Pants & Jeans">
             <span>Pants & Jeans</span>
           </div>
           <div class="subcategory-item">
-            <img src="/placeholder.svg?height=120&width=120" alt="Shorts">
+            <img src="../../placeholder.svg?height=120&width=120" alt="Shorts">
             <span>Shorts</span>
           </div>
           <div class="subcategory-item">
-            <img src="/placeholder.svg?height=120&width=120" alt="Jackets">
+            <img src="../../placeholder.svg?height=120&width=120" alt="Jackets">
             <span>Jackets</span>
           </div>
           <div class="subcategory-item">
-            <img src="/placeholder.svg?height=120&width=120" alt="Formal Wear">
+            <img src="../../placeholder.svg?height=120&width=120" alt="Formal Wear">
             <span>Formal Wear</span>
           </div>
           <div class="subcategory-item">
-            <img src="/placeholder.svg?height=120&width=120" alt="Shoes">
+            <img src="../../placeholder.svg?height=120&width=120" alt="Shoes">
             <span>Shoes</span>
           </div>
           <div class="subcategory-item">
-            <img src="/placeholder.svg?height=120&width=120" alt="Accessories">
+            <img src="../../placeholder.svg?height=120&width=120" alt="Accessories">
             <span>Accessories</span>
           </div>
         </div>
@@ -75,7 +242,7 @@
         <div class="product-grid">
           <div class="product-card">
             <div class="product-image">
-              <img src="/placeholder.svg?height=180&width=180" alt="Men's T-Shirt">
+              <img src="../../placeholder.svg?height=180&width=180" alt="Men's T-Shirt">
               <div class="discount-tag">25% OFF</div>
             </div>
             <div class="product-info">
@@ -89,7 +256,7 @@
           </div>
           <div class="product-card">
             <div class="product-image">
-              <img src="/placeholder.svg?height=180&width=180" alt="Men's Jeans">
+              <img src="../../placeholder.svg?height=180&width=180" alt="Men's Jeans">
               <div class="discount-tag">15% OFF</div>
             </div>
             <div class="product-info">
@@ -103,7 +270,7 @@
           </div>
           <div class="product-card">
             <div class="product-image">
-              <img src="/placeholder.svg?height=180&width=180" alt="Men's Shirt">
+              <img src="../../placeholder.svg?height=180&width=180" alt="Men's Shirt">
             </div>
             <div class="product-info">
               <div class="product-name">Business Casual Shirt</div>
@@ -115,7 +282,7 @@
           </div>
           <div class="product-card">
             <div class="product-image">
-              <img src="/placeholder.svg?height=180&width=180" alt="Men's Sneakers">
+              <img src="../../placeholder.svg?height=180&width=180" alt="Men's Sneakers">
               <div class="discount-tag">30% OFF</div>
             </div>
             <div class="product-info">
@@ -129,7 +296,7 @@
           </div>
           <div class="product-card">
             <div class="product-image">
-              <img src="/placeholder.svg?height=180&width=180" alt="Men's Watch">
+              <img src="../../placeholder.svg?height=180&width=180" alt="Men's Watch">
             </div>
             <div class="product-info">
               <div class="product-name">Stainless Steel Watch</div>
@@ -151,32 +318,78 @@
         </div>
         <div class="brands-grid">
           <div class="brand-item">
-            <img src="/placeholder.svg?height=100&width=100" alt="Brand 1">
+            <img src="../../placeholder.svg?height=100&width=100" alt="Brand 1">
           </div>
           <div class="brand-item">
-            <img src="/placeholder.svg?height=100&width=100" alt="Brand 2">
+            <img src="../../placeholder.svg?height=100&width=100" alt="Brand 2">
           </div>
           <div class="brand-item">
-            <img src="/placeholder.svg?height=100&width=100" alt="Brand 3">
+            <img src="../../placeholder.svg?height=100&width=100" alt="Brand 3">
           </div>
           <div class="brand-item">
-            <img src="/placeholder.svg?height=100&width=100" alt="Brand 4">
+            <img src="../../placeholder.svg?height=100&width=100" alt="Brand 4">
           </div>
           <div class="brand-item">
-            <img src="/placeholder.svg?height=100&width=100" alt="Brand 5">
+            <img src="../../placeholder.svg?height=100&width=100" alt="Brand 5">
           </div>
           <div class="brand-item">
-            <img src="/placeholder.svg?height=100&width=100" alt="Brand 6">
+            <img src="../../placeholder.svg?height=100&width=100" alt="Brand 6">
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Footer Component -->
-  <div data-component="footer"></div>
+  <!-- Footer Component (Inline) -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Customer Service</h3>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">How to Buy</a></li>
+            <li><a href="#">Shipping & Delivery</a></li>
+            <li><a href="#">Returns & Refunds</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>About Us</h3>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Media Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Payment Methods</h3>
+          <div class="payment-icons">
+            <i class="fab fa-cc-visa"></i>
+            <i class="fab fa-cc-mastercard"></i>
+            <i class="fab fa-cc-paypal"></i>
+            <i class="fab fa-cc-amex"></i>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023 Online Shopping Mall. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
 
-  <script src="/src/js/main.js"></script>
+  <script src="../../src/js/main.js"></script>
 </body>
 
 </html>

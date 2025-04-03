@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Buy - E-Com Shop</title>
+  <link rel="stylesheet" href="../../src/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Fallback styles in case the CSS file doesn't load */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    .top-nav {
+      background-color: #ee4d2d;
+      padding: 8px 0;
+      font-size: 13px;
+    }
+
+    .top-nav a,
+    .top-nav .divider {
+      color: white;
+    }
+
+    .main-header {
+      padding: 15px 0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .category-nav {
+      background-color: white;
+      padding: 10px 0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .logo img {
+      max-height: 30px;
+      width: auto;
+    }
+
+    .help-page {
+      padding: 30px 0;
+      min-height: 500px;
+      background-color: white;
+    }
+
+    .help-header {
+      margin-bottom: 30px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .help-section {
+      margin-bottom: 30px;
+    }
+
+    .help-section h2 {
+      color: #ee4d2d;
+      margin-bottom: 15px;
+    }
+
+    .help-section p {
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .steps-list {
+      padding-left: 20px;
+    }
+
+    .steps-list li {
+      margin-bottom: 15px;
+    }
+
+    .help-image {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #eee;
+      margin: 15px 0;
+      border-radius: 5px;
+    }
+
+    .breadcrumb {
+      display: flex;
+      padding: 15px 0;
+    }
+
+    .breadcrumb a {
+      color: #757575;
+    }
+
+    .breadcrumb i {
+      margin: 0 10px;
+      color: #757575;
+    }
+
+    .breadcrumb .active {
+      color: #333;
+    }
+
+    .note-box {
+      background-color: #fef9e7;
+      border-left: 4px solid #f39c12;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 3px;
+    }
+
+    .tip-box {
+      background-color: #e8f8f5;
+      border-left: 4px solid #1abc9c;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header Components (Inline) -->
+  <div class="top-nav">
+    <div class="container">
+      <div class="top-nav-left">
+        <a href="#">Seller Centre</a>
+        <span class="divider">|</span>
+        <a href="#">Start Selling</a>
+        <span class="divider">|</span>
+        <a href="#">Download</a>
+        <span class="divider">|</span>
+        <a href="#">Follow us on</a>
+        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+      </div>
+      <div class="top-nav-right">
+        <a href="#"><i class="far fa-bell"></i> Notifications</a>
+        <a href="./help-center.html"><i class="far fa-question-circle"></i> Help</a>
+        <a href="#"><i class="fas fa-globe"></i> English</a>
+        <a href="#">Sign Up</a>
+        <span class="divider">|</span>
+        <a href="#">Login</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Header -->
+  <header class="main-header">
+    <div class="container">
+      <div class="logo">
+        <a href="../../index.html">
+          <img src="../../placeholder.svg?height=25&width=75" alt="Main Logo">
+        </a>
+      </div>
+      <div class="search-bar">
+        <input type="text" placeholder="Search for products">
+        <button class="search-button">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+      <div class="cart">
+        <a href="./cart.html">
+          <i class="fas fa-shopping-cart"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation Component (Inline) -->
+  <nav class="category-nav">
+    <div class="container">
+      <ul class="category-list">
+        <li class="category-item">
+          <a href="./womens-fashion.html">Women's Fashion</a>
+        </li>
+        <li class="category-item">
+          <a href="./mens-fashion.html">Men's Fashion</a>
+        </li>
+        <li class="category-item">
+          <a href="./phones-gadgets.html">Phones & Gadgets</a>
+        </li>
+        <li class="category-item">
+          <a href="#">Home & Lifestyle</a>
+        </li>
+        <li class="category-item">
+          <a href="#">Beauty & Health</a>
+        </li>
+        <li class="category-item">
+          <a href="#">Sports & Outdoors</a>
+        </li>
+        <li class="category-item">
+          <a href="#">Watches & Accessories</a>
+        </li>
+        <li class="category-item">
+          <a href="#">Toys & Games</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <i class="fas fa-chevron-right"></i>
+        <a href="./help-center.html">Help Center</a>
+        <i class="fas fa-chevron-right"></i>
+        <span class="active">How to Buy</span>
+      </div>
+
+      <div class="help-page">
+        <div class="help-header">
+          <h1>How to Buy on E-Com Shop</h1>
+          <p>Follow these simple steps to make a purchase on our platform.</p>
+        </div>
+
+        <div class="help-section">
+          <h2>1. Browse Products</h2>
+          <p>Find products by browsing categories, using the search bar, or exploring brand pages.</p>
+          <img src="../../placeholder.svg?height=300&width=800" alt="Browse Products" class="help-image">
+          <p>You can browse products in several ways:</p>
+          <ul class="steps-list">
+            <li>Navigate through our <strong>category menus</strong> from the top navigation bar</li>
+            <li>Use the <strong>search bar</strong> at the top of the page to search for specific products</li>
+            <li>Visit <strong>brand shops</strong> such as Nike, Adidas, etc.</li>
+            <li>Check out <strong>Flash Sales</strong> on the homepage for limited-time deals</li>
+          </ul>
+        </div>
+
+        <div class="help-section">
+          <h2>2. Select a Product</h2>
+          <p>Click on a product that interests you to view its details page.</p>
+          <img src="../../placeholder.svg?height=300&width=800" alt="Product Selection" class="help-image">
+          <p>On the product details page, you can:</p>
+          <ul class="steps-list">
+            <li>View multiple product images</li>
+            <li>Read detailed product descriptions and specifications</li>
+            <li>Check product ratings and reviews from other customers</li>
+            <li>View available variants (colors, sizes, etc.)</li>
+            <li>See shipping information</li>
+          </ul>
+        </div>
+
+        <div class="help-section">
+          <h2>3. Add to Cart</h2>
+          <p>Once you've chosen a product, select any options (size, color, quantity) and click "Add to Cart".</p>
+          <img src="../../placeholder.svg?height=300&width=800" alt="Add to Cart" class="help-image">
+          <div class="tip-box">
+            <p><strong>Tip:</strong> You can continue shopping and add more items to your cart before checkout.</p>
+          </div>
+        </div>
+
+        <div class="help-section">
+          <h2>4. Review Your Cart</h2>
+          <p>Click on the cart icon in the top-right corner to view your selected items.</p>
+          <img src="../../placeholder.svg?height=300&width=800" alt="Review Cart" class="help-image">
+          <p>In your cart, you can:</p>
+          <ul class="steps-list">
+            <li>Review all selected items</li>
+            <li>Adjust quantities or remove items</li>
+            <li>Apply discount codes or vouchers</li>
+            <li>See the subtotal and estimated shipping costs</li>
+          </ul>
+        </div>
+
+        <div class="help-section">
+          <h2>5. Proceed to Checkout</h2>
+          <p>When you're ready to complete your purchase, click the "Checkout" button.</p>
+          <img src="../../placeholder.svg?height=300&width=800" alt="Checkout Process" class="help-image">
+          <p>During checkout:</p>
+          <ul class="steps-list">
+            <li>Enter or select your shipping address</li>
+            <li>Choose your preferred shipping method</li>
+            <li>Select your payment method</li>
+            <li>Review your order details one final time</li>
+          </ul>
+          <div class="note-box">
+            <p><strong>Note:</strong> You'll need to be logged in to complete a purchase. If you don't have an account,
+              you'll be prompted to create one or log in during checkout.</p>
+          </div>
+        </div>
+
+        <div class="help-section">
+          <h2>6. Place Your Order</h2>
+          <p>Once everything looks correct, click "Place Order" to complete your purchase.</p>
+          <img src="../../placeholder.svg?height=300&width=800" alt="Order Confirmation" class="help-image">
+          <p>After placing your order:</p>
+          <ul class="steps-list">
+            <li>You'll receive an order confirmation on screen</li>
+            <li>A confirmation email will be sent to your registered email address</li>
+            <li>You can track your order status in the "My Orders" section of your account</li>
+          </ul>
+        </div>
+
+        <div class="help-section">
+          <h2>Need More Help?</h2>
+          <p>If you have any questions or encounter issues during the purchasing process, please:</p>
+          <ul class="steps-list">
+            <li>Visit our <a href="./help-center.html">Help Center</a> for more information</li>
+            <li>Contact our customer service team via the "Contact Us" page</li>
+            <li>Use the live chat feature available on our website</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer Component (Inline) -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Customer Service</h3>
+          <ul>
+            <li><a href="./help-center.html">Help Center</a></li>
+            <li><a href="./how-to-buy.html">How to Buy</a></li>
+            <li><a href="#">Shipping & Delivery</a></li>
+            <li><a href="#">Returns & Refunds</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>About Us</h3>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Media Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Payment Methods</h3>
+          <div class="payment-icons">
+            <i class="fab fa-cc-visa"></i>
+            <i class="fab fa-cc-mastercard"></i>
+            <i class="fab fa-cc-paypal"></i>
+            <i class="fab fa-cc-amex"></i>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023 Online Shopping Mall. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../src/js/main.js"></script>
+</body>
+
+</html>

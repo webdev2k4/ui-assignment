@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart - E-Com Shop</title>
+  <link rel="stylesheet" href="../../src/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Fallback styles in case the CSS file doesn't load */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    .top-nav {
+      background-color: #ee4d2d;
+      padding: 8px 0;
+      font-size: 13px;
+    }
+
+    .top-nav a,
+    .top-nav .divider {
+      color: white;
+    }
+
+    .main-header {
+      padding: 15px 0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .category-nav {
+      background-color: white;
+      padding: 10px 0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .logo img {
+      max-height: 30px;
+      width: auto;
+    }
+
+    /* Empty cart styles */
+    .empty-cart-container {
+      text-align: center;
+      padding: 50px 0;
+      background-color: white;
+      border-radius: 8px;
+      margin: 30px 0;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .empty-cart-icon {
+      font-size: 80px;
+      color: #ee4d2d;
+      opacity: 0.5;
+      margin-bottom: 20px;
+    }
+
+    .empty-cart-message {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    .continue-shopping-btn {
+      background-color: #ee4d2d;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 4px;
+      font-weight: 500;
+      display: inline-block;
+      transition: background-color 0.2s;
+    }
+
+    .continue-shopping-btn:hover {
+      background-color: #d73211;
+      text-decoration: none;
+    }
+
+    .cart-title {
+      padding: 20px 0;
+      border-bottom: 1px solid #eee;
+      margin-bottom: 0;
+    }
+
+    .breadcrumb {
+      display: flex;
+      padding: 15px 0;
+    }
+
+    .breadcrumb a {
+      color: #757575;
+    }
+
+    .breadcrumb i {
+      margin: 0 10px;
+      color: #757575;
+    }
+
+    .breadcrumb .active {
+      color: #333;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header Components (Inline) -->
+  <div class="top-nav">
+    <div class="container">
+      <div class="top-nav-left">
+        <a href="#">Seller Centre</a>
+        <span class="divider">|</span>
+        <a href="#">Start Selling</a>
+        <span class="divider">|</span>
+        <a href="#">Download</a>
+        <span class="divider">|</span>
+        <a href="#">Follow us on</a>
+        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+      </div>
+      <div class="top-nav-right">
+        <a href="#"><i class="far fa-bell"></i> Notifications</a>
+        <a href="#"><i class="far fa-question-circle"></i> Help</a>
+        <a href="#"><i class="fas fa-globe"></i> English</a>
+        <a href="#">Sign Up</a>
+        <span class="divider">|</span>
+        <a href="#">Login</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Header -->
+  <header class="main-header">
+    <div class="container">
+      <div class="logo">
+        <a href="../../index.html">
+          <img src="../../placeholder.svg?height=25&width=75" alt="Main Logo">
+        </a>
+      </div>
+      <div class="search-bar">
+        <input type="text" placeholder="Search for products">
+        <button class="search-button">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+      <div class="cart">
+        <a href="./cart.html">
+          <i class="fas fa-shopping-cart"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation Component (Inline) -->
+  <nav class="category-nav">
+    <div class="container">
+      <ul class="category-list">
+        <li class="category-item">
+          <a href="./womens-fashion.html">Women's Fashion</a>
+        </li>
+        <li class="category-item">
+          <a href="./mens-fashion.html">Men's Fashion</a>
+        </li>
+        <li class="category-item">
+          <a href="./phones-gadgets.html">Phones & Gadgets</a>
+        </li>
+        <li class="category-item">
+          <a href="#">Home & Lifestyle</a>
+        </li>
+        <li class="category-item">
+          <a href="#">Beauty & Health</a>
+        </li>
+        <li class="category-item">
+          <a href="#">Sports & Outdoors</a>
+        </li>
+        <li class="category-item">
+          <a href="#">Watches & Accessories</a>
+        </li>
+        <li class="category-item">
+          <a href="#">Toys & Games</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <i class="fas fa-chevron-right"></i>
+        <span class="active">Shopping Cart</span>
+      </div>
+
+      <h1 class="cart-title">Shopping Cart</h1>
+
+      <!-- Empty Cart Section -->
+      <div class="empty-cart-container">
+        <div class="empty-cart-icon">
+          <i class="fas fa-shopping-cart"></i>
+        </div>
+        <div class="empty-cart-message">Your shopping cart is empty</div>
+        <a href="../../index.html" class="continue-shopping-btn">Continue Shopping</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer Component (Inline) -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Customer Service</h3>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">How to Buy</a></li>
+            <li><a href="#">Shipping & Delivery</a></li>
+            <li><a href="#">Returns & Refunds</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>About Us</h3>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Media Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Payment Methods</h3>
+          <div class="payment-icons">
+            <i class="fab fa-cc-visa"></i>
+            <i class="fab fa-cc-mastercard"></i>
+            <i class="fab fa-cc-paypal"></i>
+            <i class="fab fa-cc-amex"></i>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023 Online Shopping Mall. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../src/js/main.js"></script>
+</body>
+
+</html>

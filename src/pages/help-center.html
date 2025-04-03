@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Help Center - E-Com Shop</title>
+  <link rel="stylesheet" href="../../src/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Fallback styles in case the CSS file doesn't load */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    .top-nav {
+      background-color: #ee4d2d;
+      padding: 8px 0;
+      font-size: 13px;
+    }
+
+    .top-nav a,
+    .top-nav .divider {
+      color: white;
+    }
+
+    .main-header {
+      padding: 15px 0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .category-nav {
+      background-color: white;
+      padding: 10px 0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .logo img {
+      max-height: 30px;
+      width: auto;
+    }
+
+    .help-page {
+      padding: 30px 0;
+      min-height: 500px;
+      background-color: white;
+    }
+
+    .help-header {
+      margin-bottom: 30px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .help-categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .help-category {
+      border: 1px solid #eee;
+      border-radius: 5px;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .help-category:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .help-category i {
+      font-size: 48px;
+      color: #ee4d2d;
+      margin-bottom: 15px;
+    }
+
+    .help-category h3 {
+      margin-bottom: 10px;
+    }
+
+    .help-category p {
+      color: #666;
+      margin-bottom: 15px;
+    }
+
+    .help-category a {
+      color: #ee4d2d;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .help-category a:hover {
+      text-decoration: underline;
+    }
+
+    .faq-section {
+      margin-bottom: 40px;
+    }
+
+    .faq-section h2 {
+      color: #333;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .faq-item {
+      margin-bottom: 20px;
+      border: 1px solid #eee;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      padding: 15px;
+      background-color: #f9f9f9;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-answer {
+      padding: 15px;
+      border-top: 1px solid #eee;
+      line-height: 1.6;
+    }
+
+    .search-container {
+      margin-bottom: 30px;
+      display: flex;
+    }
+
+    .search-container input {
+      flex: 1;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 4px 0 0 4px;
+      font-size: 16px;
+    }
+
+    .search-container button {
+      padding: 12px 20px;
+      background-color: #ee4d2d;
+      color: white;
+      border: none;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+    }
+
+    .contact-options {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+    }
+
+    .contact-option {
+      flex: 1;
+      text-align: center;
+      padding: 20px;
+      border: 1px solid #eee;
+      border-radius: 5px;
+      margin: 0 10px;
+    }
+
+    .contact-option i {
+      font-size: 36px;
+      color: #ee4d2d;
+      margin-bottom: 10px;
+    }
+
+    .breadcrumb {
+      display: flex;
+      padding: 15px 0;
+    }
+
+    .breadcrumb a {
+      color: #757575;
+    }
+
+    .breadcrumb i {
+      margin: 0 10px;
+      color: #757575;
+    }
+
+    .breadcrumb .active {
+      color: #333;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header Components (Inline) -->
+  <div class="top-nav">
+    <div class="container">
+      <div class="top-nav-left">
+        <a href="#">Seller Centre</a>
+        <span class="divider">|</span>
+        <a href="#">Start Selling</a>
+        <span class="divider">|</span>
+        <a href="#">Download</a>
+        <span class="divider">|</span>
+        <a href="#">Follow us on</a>
+        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+      </div>
+      <div class="top-nav-right">
+        <a href="#"><i class="far fa-bell"></i> Notifications</a>
+        <a href="./help-center.html"><i class="far fa-question-circle"></i> Help</a>
+        <a href="#"><i class="fas fa-globe"></i> English</a>
+        <a href="#">Sign Up</a>
+        <span class="divider">|</span>
+        <a href="#">Login</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Header -->
+  <header class="main-header">
+    <div class="container">
+      <div class="logo">
+        <a href="../../index.html">
+          <img src="../../placeholder.svg?height=25&width=75" alt="Main Logo">
+        </a>
+      </div>
+      <div class="search-bar">
+        <input type="text" placeholder="Search for products">
+        <button class="search-button">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+      <div class="cart">
+        <a href="./cart.html">
+          <i class="fas fa-shopping-cart"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation Component (Inline) -->
+  <nav class="category-nav">
+    <div class="container">
+      <ul class="category-list">
+        <li class="category-item">
+          <a href="./womens-fashion.html">Women's Fashion</a>
+        </li>
+        <li class="category-item">
+          <a href="./mens-fashion.html">Men's Fashion</a>
+        </li>
+        <li class="category-item">
+          <a href="./phones-gadgets.html">Phones & Gadgets</a>
+        </li>
+        <li class="category-item">
+          <a href="#">Home & Lifestyle</a>
+        </li>
+        <li class="category-item">
+          <a href="#">Beauty & Health</a>
+        </li>
+        <li class="category-item">
+          <a href="#">Sports & Outdoors</a>
+        </li>
+        <li class="category-item">
+          <a href="#">Watches & Accessories</a>
+        </li>
+        <li class="category-item">
+          <a href="#">Toys & Games</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <i class="fas fa-chevron-right"></i>
+        <span class="active">Help Center</span>
+      </div>
+
+      <div class="help-page">
+        <div class="help-header">
+          <h1>Help Center</h1>
+          <p>Welcome to our Help Center. Find answers to your questions and get the support you need.</p>
+          <div class="search-container">
+            <input type="text" placeholder="Search for help topics...">
+            <button><i class="fas fa-search"></i> Search</button>
+          </div>
+        </div>
+
+        <div class="help-categories">
+          <div class="help-category">
+            <i class="fas fa-shopping-cart"></i>
+            <h3>Shopping Guide</h3>
+            <p>Learn how to shop on our platform and make secure purchases.</p>
+            <a href="./how-to-buy.html">View Guide <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="help-category">
+            <i class="fas fa-truck"></i>
+            <h3>Shipping & Delivery</h3>
+            <p>Information about shipping methods, delivery times, and tracking orders.</p>
+            <a href="#">View Guide <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="help-category">
+            <i class="fas fa-exchange-alt"></i>
+            <h3>Returns & Refunds</h3>
+            <p>Learn about our return policy and how to request refunds.</p>
+            <a href="#">View Guide <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="help-category">
+            <i class="fas fa-credit-card"></i>
+            <h3>Payments</h3>
+            <p>Information about payment methods, vouchers, and payment issues.</p>
+            <a href="#">View Guide <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="help-category">
+            <i class="fas fa-user"></i>
+            <h3>Account Management</h3>
+            <p>Learn how to manage your account details, password, and settings.</p>
+            <a href="#">View Guide <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="help-category">
+            <i class="fas fa-shield-alt"></i>
+            <h3>Security & Privacy</h3>
+            <p>Information about account security and privacy protection.</p>
+            <a href="#">View Guide <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="faq-section">
+          <h2>Frequently Asked Questions</h2>
+          <div class="faq-item">
+            <div class="faq-question">
+              How long will it take to receive my order?
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              Delivery times depend on your location and the shipping method selected at checkout. Standard shipping
+              typically takes 3-7 business days, while express shipping can deliver within 1-3 business days. You can
+              check the estimated delivery time for your specific order during checkout.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              Can I change or cancel my order after it's been placed?
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              You can cancel or modify your order only if it hasn't been processed yet. To do this, go to "My Orders" in
+              your account and check if the cancel option is available. If your order has already been processed, you
+              may need to wait until you receive it and then request a return.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              How do I return an item?
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              To return an item, go to "My Orders" in your account, find the order containing the item you want to
+              return, and click "Return/Refund". Follow the instructions to complete your return request. Once approved,
+              you'll receive instructions on how to ship the item back to us.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              What payment methods do you accept?
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              We accept various payment methods including credit/debit cards (Visa, MasterCard, American Express),
+              PayPal, bank transfers, and cash on delivery (for eligible locations). Available payment methods will be
+              shown during checkout.
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              How can I track my order?
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              You can track your order by logging into your account and going to "My Orders". Select the order you want
+              to track and click on "Track Order". You'll see the current status and location of your package. We also
+              send tracking information via email once your order ships.
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-options">
+          <div class="contact-option">
+            <i class="fas fa-comments"></i>
+            <h3>Live Chat</h3>
+            <p>Chat with our customer service representatives in real-time.</p>
+            <button class="btn">Start Chat</button>
+          </div>
+          <div class="contact-option">
+            <i class="fas fa-envelope"></i>
+            <h3>Email Support</h3>
+            <p>Send us an email and we'll respond within 24 hours.</p>
+            <button class="btn">Email Us</button>
+          </div>
+          <div class="contact-option">
+            <i class="fas fa-phone-alt"></i>
+            <h3>Phone Support</h3>
+            <p>Call our customer service team directly.</p>
+            <button class="btn">Call Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer Component (Inline) -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Customer Service</h3>
+          <ul>
+            <li><a href="./help-center.html">Help Center</a></li>
+            <li><a href="./how-to-buy.html">How to Buy</a></li>
+            <li><a href="#">Shipping & Delivery</a></li>
+            <li><a href="#">Returns & Refunds</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>About Us</h3>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Media Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Payment Methods</h3>
+          <div class="payment-icons">
+            <i class="fab fa-cc-visa"></i>
+            <i class="fab fa-cc-mastercard"></i>
+            <i class="fab fa-cc-paypal"></i>
+            <i class="fab fa-cc-amex"></i>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023 Online Shopping Mall. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../src/js/main.js"></script>
+</body>
+
+</html>
